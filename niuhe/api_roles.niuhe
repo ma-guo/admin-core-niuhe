@@ -1,0 +1,87 @@
+include('comm.niuhe')
+
+class V1RolesPageReq(Message):
+    '''角色分页列表'''
+    keywords = optional.StringField(desc='搜索关键字')
+    pageNum = optional.IntegerField(desc='页码')
+    pageSize = optional.IntegerField(desc='每页数量')
+
+class V1RolesItem(Message):
+    '''角色列表项'''
+    id = required.LongField(desc='角色ID')
+    name = required.StringField(desc='角色名称')
+    code = required.StringField(desc='角色编码')
+    status = required.EnumField(desc='角色状态', group=comm.CommStatusEnum)
+    sort = required.IntegerField(desc='排序')
+    createTime = required.StringField(desc='创建时间')
+    updateTime = required.StringField(desc='更新时间')
+
+class V1RolesPageRsp(Message):
+    list = repeated.MessageField(cls=V1RolesItem, desc='数据项')
+    total = required.LongField(desc='总数')
+
+class V1RolesOptiosRsp(Message):
+    items = repeated.MessageField(cls=comm.LongOptionItem, desc='角色下拉列表项')
+
+class V1RolesAddReq(Message):
+    '''角色新增'''
+    id = optional.LongField(desc='角色ID')
+    name = required.StringField(desc='角色名称')
+    code = required.StringField(desc='角色编码')
+    status = required.EnumField(desc='角色状态', group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc='排序')
+    dataScope = optional.EnumField(desc='数据权限', group=comm.DataScopeEnum)
+
+class V1RolesFormReq(Message):
+    '''角色表单数据请求结构'''
+    id = required.LongField(desc='角色ID')
+
+class V1RolesFormRsp(Message):
+    '''角色表单数据'''
+    id = optional.LongField(desc='角色ID')
+    name = required.StringField(desc='角色名称')
+    code = required.StringField(desc='角色编码')
+    status = required.EnumField(desc='角色状态', group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc='排序')
+    dataScope = optional.EnumField(desc='数据权限', group=comm.DataScopeEnum)
+
+class V1RolesUpdateReq(Message):
+    '''角色表单数据'''
+    id = required.LongField(desc='角色ID')
+    name = required.StringField(desc='角色名称')
+    code = required.StringField(desc='角色编码')
+    status = required.EnumField(desc='角色状态', group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc='排序')
+    dataScope = optional.EnumField(desc='数据权限', group=comm.DataScopeEnum)
+
+class V1RolesDeleteReq(Message):
+    '''角色删除'''
+    ids = required.StringField(desc='删除角色，多个以英文逗号(,)分割')
+
+class V1RolesMenuIdsReq(Message):
+    '''获取角色的菜单ID集合'''
+    roleId = required.LongField(desc='角色ID')
+class V1RolesMenuIdsRsp(Message):
+    '''获取角色的菜单ID集合'''
+    items = repeated.LongField(desc='菜单ID集合')
+
+class V1RolesMenusReq(Message):
+    '''给角色分配权限'''
+    roleId = required.LongField(desc='角色ID')
+    menuIds = repeated.LongField(desc='菜单ID集合')
+
+class V1RolesStatusReq(Message):
+    '''修改角色状态'''
+    roleId = required.LongField(desc='角色ID')
+    status = required.EnumField(desc='角色状态', group=comm.CommStatusEnum)
+
+with services():
+    GET('角色分页列表', '/v1/roles/page/', V1RolesPageReq, wraps(V1RolesPageRsp))
+    GET('角色下拉列表', '/v1/roles/options/', comm.NoneReq, wraps(V1RolesOptiosRsp))
+    POST('新增角色', '/v1/roles/add/', V1RolesAddReq, wraps(comm.NoneRsp))
+    GET('角色表单数据', '/v1/roles/form/', V1RolesFormReq, wraps(V1RolesFormRsp))
+    POST('修改角色信息', '/v1/roles/update/', V1RolesUpdateReq, wraps(comm.NoneRsp))
+    POST('删除角色', '/v1/roles/delete/', V1RolesDeleteReq, wraps(comm.NoneRsp))
+    GET('获取角色的菜单ID集合', '/v1/roles/menuids/', V1RolesMenuIdsReq, wraps(V1RolesMenuIdsRsp))
+    POST('分配菜单权限给角色', '/v1/roles/menus/', V1RolesMenusReq, wraps(comm.NoneRsp))
+    POST('修改角色状态', '/v1/roles/status/', V1RolesStatusReq, wraps(comm.NoneRsp))

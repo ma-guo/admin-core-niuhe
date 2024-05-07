@@ -1,0 +1,46 @@
+## dict 和 dicttypes 都在这里定义
+include('comm.niuhe')
+
+class V1DictTypesPageReq(Message):
+    keywords = optional.StringField(desc="关键字(类型名称/类型编码)")
+    pageNum = optional.IntegerField(desc="页码")
+    pageSize = optional.IntegerField(desc="每页记录数")
+
+
+class V1DictTypesPageRsp(Message):
+    list = repeated.MessageField(cls=comm.V1DictTypesItem, desc="列表")
+    total = required.LongField(desc="总记录数")
+
+class V1DictTypesFormReq(Message):
+    id = required.LongField(desc="主键")
+
+class V1DictTypesFormRsp(Message):
+    id = optional.LongField(desc="主键")
+    name = optional.StringField(desc="类型名称")
+    code = optional.StringField(desc="类型编码")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    remark = optional.StringField(desc="备注")
+
+class V1DictTypesAddReq(Message):
+    id = optional.LongField(desc="主键")
+    name = optional.StringField(desc="类型名称")
+    code = required.StringField(desc="类型编码-必填")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    remark = optional.StringField(desc="备注")
+
+class V1DictTypesUpdateReq(Message):
+    id = required.LongField(desc="主键")
+    name = optional.StringField(desc="类型名称")
+    code = required.StringField(desc="类型编码")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    remark = optional.StringField(desc="备注")
+
+class V1DictTypesDeleteReq(Message):
+    ids = required.StringField(desc="字典类型ID，多个以英文逗号(,)分割")
+
+with services():
+    GET('字典类型分页列表', '/v1/dict_types/page/', V1DictTypesPageReq, wraps(V1DictTypesPageRsp))
+    GET('字典类型表单', '/v1/dict_types/form/', V1DictTypesFormReq, wraps(V1DictTypesFormRsp))
+    POST('新增字典类型', '/v1/dict_types/add/', V1DictTypesAddReq, wraps(comm.NoneRsp))
+    POST('修改字典类型', '/v1/dict_types/update/', V1DictTypesUpdateReq, wraps(comm.NoneRsp))
+    POST('删除字典类型', '/v1/dict_types/delete/', V1DictTypesDeleteReq, wraps(comm.NoneRsp))

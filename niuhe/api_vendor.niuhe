@@ -1,0 +1,55 @@
+include('comm.niuhe')
+
+class V1VendorItem(Message):
+    id = optional.LongField(desc="主键")
+    vendor = optional.StringField(desc="文件存储提供商")
+    name = optional.StringField(desc="配置名")
+    key = optional.StringField(desc="配置键")
+    value = optional.StringField(desc="配置值")
+    remark = optional.StringField(desc="备注")
+    updateTime = optional.StringField(desc='更新时间')
+
+
+class V1FilesZoneRsp(Message):
+    '''获取文件存储区域返回'''
+    qiniu = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptionItem)
+
+class V1FilesVendorsRsp(Message):
+    '''获取文件存储提供商列表返回'''
+    items = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptions)
+    current = required.MessageField(desc='当前文件存储提供商', cls=V1VendorItem)
+
+class V1VendorPageReq(Message):
+    vendor = optional.StringField(desc="文件存储提供商")
+    pageNum = optional.IntegerField(desc="页码")
+    pageSize = optional.IntegerField(desc="每页记录数")
+
+
+
+class V1VendorPageRsp(Message):
+    items = repeated.MessageField(cls=V1VendorItem, desc="列表")
+    total = required.LongField(desc="总记录数")
+
+class V1VendorFormReq(Message):
+    id = required.LongField(desc="配置 id")
+
+class V1VendorFormRsp(Message):
+    item = required.MessageField(cls=V1VendorItem, desc="配置项")
+    options = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptionItem)
+
+class V1VendorUpdateReq(Message):
+    id = required.LongField(desc="主键")
+    vendor = required.StringField(desc="文件存储提供商")
+    name = required.StringField(desc="配置名")
+    key = required.StringField(desc="配置键")
+    value = required.StringField(desc="配置值")
+    remark = optional.StringField(desc="备注")
+
+
+with services():
+    GET('获取文件存储区域', '/v1/vendor/zones/', comm.NoneReq, wraps(V1FilesZoneRsp))
+    GET('初始化文件提供商参数', '/v1/vendor/init/', comm.NoneReq, wraps(comm.NoneRsp))
+    GET('获取文件存储提供商列表', '/v1/vendor/list/', comm.NoneReq, wraps(V1FilesVendorsRsp))
+    GET('文件配置列表', '/v1/vendor/page/', V1VendorPageReq, wraps(V1VendorPageRsp))
+    GET('获取配置项详情值', '/v1/vendor/form/', V1VendorFormReq, wraps(V1VendorFormRsp))
+    POST('更新配置项', '/v1/vendor/update/', V1VendorUpdateReq, wraps(comm.NoneRsp))

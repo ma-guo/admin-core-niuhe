@@ -1,0 +1,66 @@
+## dict 和 dicttypes 都在这里定义
+include('comm.niuhe')
+
+class V1DictPageReq(Message):
+    keywords = optional.StringField(desc="关键字(类型名称/类型编码)")
+    typeCode = optional.StringField(desc="字典类型编码")
+    pageNum = optional.IntegerField(desc="页码")
+    pageSize = optional.IntegerField(desc="每页记录数")
+
+class V1DictItem(Message):
+    id = optional.LongField(desc="主键")
+    name = optional.StringField(desc="字典名称")
+    value = optional.StringField(desc="字典值")
+    remark = optional.StringField(desc="备注")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+
+class V1DictPageRsp(Message):
+    list = repeated.MessageField(cls=V1DictItem, desc="列表")
+    total = required.LongField(desc="总记录数")
+
+class V1DictOptionsReq(Message):
+    typeCode = required.StringField(desc="字典类型编码")
+
+class V1DictOptionsRsp(Message):
+    items = repeated.MessageField(cls=comm.StringOptions, desc="选项列表")
+
+class V1DictFormReq(Message):
+    id = required.LongField(desc="字典ID")
+
+class V1DictFormRsp(Message):
+    id = optional.LongField(desc="主键")
+    typeCode = required.StringField(desc="类型编码")
+    name = optional.StringField(desc="字典名称")
+    value= optional.StringField(desc="字典值")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc="排序")
+    remark = optional.StringField(desc="备注")
+
+class V1DictAddReq(Message):
+    id = optional.LongField(desc="主键")
+    typeCode = required.StringField(desc="类型编码")
+    name = optional.StringField(desc="字典名称")
+    value= optional.StringField(desc="字典值")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc="排序")
+    remark = optional.StringField(desc="备注")
+
+class V1DictUpdateReq(Message):
+    id = required.LongField(desc="主键")
+    typeCode = optional.StringField(desc="类型编码")
+    name = optional.StringField(desc="字典名称")
+    value= optional.StringField(desc="字典值")
+    status = optional.EnumField(desc="状态", group=comm.CommStatusEnum)
+    sort = optional.IntegerField(desc="排序")
+    remark = optional.StringField(desc="备注")
+
+class V1DictDeleteReq(Message):
+    ids = required.StringField(desc="字典ID，多个以英文逗号(,)拼接")
+
+with services():
+    GET('字典分页列表', '/v1/dict/page/', V1DictPageReq, wraps(V1DictPageRsp))
+    GET('字典下拉列表', '/v1/dict/options/', V1DictOptionsReq, wraps(V1DictOptionsRsp))
+    GET('字典数据表单数据', '/v1/dict/form/', V1DictFormReq, wraps(V1DictFormRsp))
+    POST('新增字典', '/v1/dict/add/', V1DictAddReq, wraps(comm.NoneRsp))
+    POST('修改字典', '/v1/dict/update/', V1DictUpdateReq, wraps(comm.NoneRsp))
+    POST('删除字典', '/v1/dict/delete/', V1DictDeleteReq, wraps(comm.NoneRsp))

@@ -1,0 +1,66 @@
+include('comm.niuhe')
+
+
+class V1DeptItem(Message):
+    '''部门信息'''
+    id = required.LongField(desc='部门id')
+    parentId = optional.LongField(desc='父部门id')
+    name = required.StringField(desc='部门名称')
+    sort = optional.IntegerField(desc='排序')
+    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+    createTime = optional.StringField(desc='创建时间')
+    updateTime = optional.StringField(desc='修改时间')
+    children = repeated.MessageField(cls=V1DeptItem, desc='子部门')
+
+class V1DeptListReq(Message):
+    '''部门列表请求'''
+    keyword = optional.StringField(desc='搜索关键词')
+    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+
+class V1DeptListRsp(Message):
+    '''部门列表响应'''
+    items = repeated.MessageField(cls=V1DeptItem, desc='部门列表')
+
+class V1DeptAddReq(Message):
+    '''部门添加请求参数'''
+    id = optional.LongField(desc='部门id, 前端使用')
+    parentId = required.LongField(desc='父部门id')
+    name = required.StringField(desc='部门名称')
+    sort = optional.IntegerField(desc='排序')
+    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+
+class V1DeptOptionsRsp(Message):
+    '''部门下拉列表响应'''
+    items = repeated.MessageField(cls=comm.LongOptions, desc='部门列表')
+
+class V1DeptUpdateReq(Message):
+    '''修改部门请求参数'''
+    id = required.LongField(desc='部门id')
+    parentId = required.LongField(desc='父部门id')
+    name = required.StringField(desc='部门名称')
+    sort = optional.IntegerField(desc='排序')
+    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+
+class V1DeptFormReq(Message):
+    '''获取部门表单数据请求参数'''
+    id = required.LongField(desc='部门id')
+
+class V1DeptFormRsp(Message):
+    '''获取部门表单数据返回参数'''
+    id = required.LongField(desc='部门id')
+    parentId = required.LongField(desc='父部门id')
+    name = required.StringField(desc='部门名称')
+    sort = optional.IntegerField(desc='排序')
+    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+
+class V1DeptDeleteReq(Message):
+    '''删除部门请求参数'''
+    ids = required.StringField(desc='部门ID，多个以英文逗号(,)分割')
+
+with services():
+    GET('获取部门列表', '/v1/dept/list/', V1DeptListReq, wraps(V1DeptListRsp))
+    POST('添加部门', '/v1/dept/add/', V1DeptAddReq, wraps(comm.NoneRsp))
+    GET('获取部门下拉列表', '/v1/dept/options/', comm.NoneReq, wraps(V1DeptOptionsRsp))
+    POST('修改部门', '/v1/dept/update/', V1DeptUpdateReq, wraps(comm.NoneRsp))
+    GET('获取部门表单数据', '/v1/dept/form/', V1DeptFormReq, wraps(V1DeptFormRsp))
+    POST('删除部门', '/v1/dept/delete/', V1DeptDeleteReq, wraps(comm.NoneRsp))

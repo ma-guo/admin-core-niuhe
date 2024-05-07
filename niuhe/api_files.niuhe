@@ -1,0 +1,70 @@
+include('comm.niuhe')
+
+class QiniuZoneEnum(ConstGroup):
+    '''七牛存储区域'''
+    Huadong = Item('ZoneHuadong', '华东机房')
+    Huabei = Item('ZoneHuabei', '华北机房')
+    Huanan = Item('ZoneHuanan', '华南机房')
+    Beimei = Item('ZoneBeimei', '北美机房')
+    Xinjiapo = Item('ZoneXinjiapo', '新加坡机房')
+    ZheJiang2 = Item('ZoneHuadongZheJiang2', '华东浙江 2 区')
+
+class FileVendorEnum(ConstGroup):
+    '''文件存储提供商'''
+    Local = Item('local', '本机存储')
+    Qiniu = Item('qiniu', '七牛存储')
+    Aliyun = Item('aliyun', '阿里云存储')
+    Tencent = Item('tencent', '腾讯云存储')
+
+class V1FileItem(Message):
+    '''文件结构信息'''
+    id = required.LongField(desc='文件ID')
+    name = required.StringField(desc='文件名')
+    url = required.StringField(desc='文件URL')
+    key = optional.StringField(desc='文件key')
+    vendor = optional.StringEnumField(desc='菜单类型', group=FileVendorEnum)
+    createTime = optional.StringField(desc='创建时间')
+    deleted = optional.BooleanField(desc='是否删除')
+    vendorName = optional.StringField(desc='文件存储提供商')
+
+class V1FilesUploadRsp(Message):
+    '''文件上传请求'''
+    name = optional.StringField(desc='文件名')
+    url = optional.StringField(desc='文件URL')
+class V1FilesDeleteReq(Message):
+    '''文件删除请求'''
+    filePath = required.StringField(desc='文件路径')
+
+class V1FileFetchReq(Message):
+    url = required.StringField(desc='文件URL')
+
+class V1FilePageReq(Message):
+    '''文件分页请求'''
+    pageNum = required.IntegerField(desc='页码')
+    pageSize = required.IntegerField(desc='每页数量')
+    vendor = optional.StringField(desc='文件存储提供商')
+    name = optional.StringField(desc='文件名')
+
+class V1FilePageRsp(Message):
+    items = repeated.MessageField(desc='文件列表', cls=V1FileItem)
+    total = required.LongField(desc='总数')
+
+class V1FileFormReq(Message):
+    '''文件修改弹窗请求参数'''
+    id = required.LongField(desc='文件 ID')
+
+class V1FileFromRsp(V1FileItem):
+    '''文件弹窗信息返回'''
+    createTime = required.StringField(desc='创建时间')
+
+class V1FileUpdateReq(Message):
+    id = required.LongField(desc='文件ID')
+    name = required.StringField(desc='文件名')
+
+with services():
+    POST('文件上传请求', '/v1/files/upload/', comm.NoneReq, wraps(V1FilesUploadRsp ))
+    POST('文件删除请求', '/v1/files/delete/', V1FilesDeleteReq, wraps(comm.NoneRsp))
+    GET('文件下载请求', '/v1/files/fetch/', V1FileFetchReq, wraps(comm.NoneRsp))
+    GET('文件分页请求', '/v1/files/page/', V1FilePageReq, wraps(V1FilePageRsp))
+    GET('文件修改弹窗请求', '/v1/files/form/', V1FileFormReq, wraps(V1FileFromRsp))
+    POST('文件修改请求', '/v1/files/update/', V1FileUpdateReq, wraps(comm.NoneRsp))

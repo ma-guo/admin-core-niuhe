@@ -1,0 +1,11 @@
+#app=admincore
+
+include('api_auth.niuhe')
+include('api_users.niuhe')
+include('api_roles.niuhe')
+include('api_menus.niuhe')
+include('api_depts.niuhe')
+include('api_dict.niuhe')
+include('api_dict_type.niuhe')
+include('api_files.niuhe')
+include('api_vendor.niuhe')
