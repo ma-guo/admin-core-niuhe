@@ -1,7 +1,10 @@
+# 子项目
+在 clone 项目后, 需在 src/admin-core 下 clone `github.com/ma-guo/admin-core` 项目
+
 # mod
 ```sh
     go env -w GO111MODULE=auto
-    cd src/admmin-core && go mod init github.com/ma-guo/admin-core && go mod tidy && go mod vendor && cd ../../ && make run
+    cd src/admmin-core && go mod init github.com/ma-guo/admincore && go mod tidy && go mod vendor && cd ../../ && make run
 ```
 
 db 配置格式

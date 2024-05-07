@@ -8,7 +8,3 @@ typings/api.ts
 niuhe/.config
 .vscode
 conf/admincore.yaml
-src/admincore/go.mod
-src/admincore/go.sum
-src/admincore/vendor
-src/admincore/main.go

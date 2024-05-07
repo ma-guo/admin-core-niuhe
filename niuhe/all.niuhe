@@ -1,4 +1,5 @@
-#app=admincore
+#app=admin-core
+#gomod=github.com/ma-guo/admin-core
 
 include('api_auth.niuhe')
 include('api_users.niuhe')

@@ -1,4 +1,4 @@
-ALL := admincore
+ALL := admin-core
 
 ifeq ($(P), LINUX)
 	GOBUILD := GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go install
@@ -15,7 +15,7 @@ all:
 
 run:
 	$(GOBUILD) $(ALL)
-	bin/admin-core conf/admincore.yaml
+	bin/admin-core conf/admin-core.yaml
 
 clean:
-	rm -fr pkg bin/admincore
+	rm -fr pkg bin/admin-core
