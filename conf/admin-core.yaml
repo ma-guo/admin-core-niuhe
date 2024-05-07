@@ -1,4 +1,4 @@
-serveraddr: :9999
+serveraddr: :19999
 loglevel: INFO
 db:
   showsql: false
