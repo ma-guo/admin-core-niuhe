@@ -1,0 +1,22 @@
+{
+  info: {
+    title: "admin-core api 文档",
+    version: "1.0.0",
+    description: "基于 Vue3 + Vite5+ TypeScript5 + Element-Plus + Pinia 等主流技术栈构建的免费开源的后台管理前端模板 go 版后端管理程序 api 文档",
+    license: {
+      name: "MIT License",
+      url: "https://github.com/ma-guo/vue3-element-admin/blob/main/LICENSE",
+    },
+  },
+  tags: {
+    auth: "登录认证",
+    dept: "部门管理",
+    dict_types: "字典类型",
+    dict: "字典管理",
+    files: "文件管理",
+    menus: "菜单管理",
+    roles: "角色管理",
+    users: "用户管理",
+    vendor: "存储提供商",
+  },
+}
