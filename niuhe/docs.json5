@@ -8,6 +8,15 @@
       url: "https://github.com/ma-guo/vue3-element-admin/blob/main/LICENSE",
     },
   },
+  security: {
+    // 支持的 验证方式
+    bearer: {
+      // 这里为 bearer 的例子
+      type: "apiKey",
+      name: "Authorization",
+      in: "header", // bearer 放在 header 中
+    },
+  },
   tags: {
     auth: "登录认证",
     dept: "部门管理",
