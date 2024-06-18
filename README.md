@@ -1,6 +1,11 @@
 # 子项目
 在 clone 项目后, 需在 src/admin-core 下 clone `github.com/ma-guo/admin-core` 项目
 
+# 线上 demo
+[admindemo](http://admindemo.zuxing.net/)
+- 用户名 admin
+- 密码 123456
+
 # mod
 ```sh
     go env -w GO111MODULE=auto
