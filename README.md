@@ -1,3 +1,6 @@
+# `niuhe` 教程
+在稀土掘金开了[niuhe 插件](https://juejin.cn/column/7376620206338785314) 系列教程。如有问题, 亦可咨询 `1057981162` (QQ/微信)
+
 # 子项目
 在 clone 项目后, 需在 src/admin-core 下 clone `github.com/ma-guo/admin-core` 项目
 
