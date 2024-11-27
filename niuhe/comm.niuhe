@@ -8,6 +8,11 @@ class NoneRsp(Message):
     '''返回数据为空'''
     pass
 
+class IntOptionItem(Message):
+    '''选项数值'''
+    value = required.IntegerField(desc='选项ID')
+    label = required.StringField(desc='选项名称')
+
 class LongOptionItem(Message):
     '''选项数值'''
     value = required.LongField(desc='选项ID')
@@ -52,4 +57,10 @@ class V1DictTypesItem(Message):
     code = optional.StringField(desc="类型编码")
     remark = optional.StringField(desc="备注")
     status = optional.EnumField(desc="状态", group=CommStatusEnum)
+
+class V1MenuTiny(Message):
+    '''菜单视图对象'''
+    id = required.LongField(desc='菜单ID')
+    name = required.StringField(desc='菜单名称')
+    perm = optional.StringField(desc='按钮权限标识')
     

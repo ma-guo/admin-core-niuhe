@@ -2584,6 +2584,102 @@
                 ]
             }
         },
+        "/v1/menus/page/": {
+            "get": {
+                "description": "菜单分页列表",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [
+                    "菜单管理"
+                ],
+                "summary": "菜单分页列表",
+                "parameters": [
+                    {
+                        "name": "keywords",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "关键字"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "菜单类型, 忽略本参数 取值范围及含义: 1 - MENU; 2 - CATALOG; 3 - EXTLINK; 4 - BUTTON;",
+                        "enum": [
+                            1,
+                            2,
+                            3,
+                            4
+                        ]
+                    },
+                    {
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "页码"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "每页记录数"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "菜单列表响应",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "请求状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.V1MenusPageRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "items": [
+                                        {
+                                            "id": 0,
+                                            "name": "",
+                                            "perm": ""
+                                        }
+                                    ],
+                                    "total": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
         "/v1/dept/list/": {
             "get": {
                 "description": "获取部门列表",
@@ -4784,6 +4880,261 @@
                     "application/json"
                 ]
             }
+        },
+        "/v1/api/page/": {
+            "get": {
+                "description": "API列表",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "API列表",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "路径名称搜索"
+                    },
+                    {
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "页码"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "每页记录数"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "分页获取API列表",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "请求状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.V1ApiPageRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "items": [
+                                        {
+                                            "id": 0,
+                                            "method": "",
+                                            "name": "",
+                                            "path": "",
+                                            "menus": [
+                                                ""
+                                            ],
+                                            "remark": "",
+                                            "updateTime": ""
+                                        }
+                                    ],
+                                    "button": 0,
+                                    "total": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/v1/api/form/": {
+            "get": {
+                "description": "获取API详情值",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "获取API详情值",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "配置 id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json response",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "请求状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.V1ApiFormRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "id": 0,
+                                    "method": "",
+                                    "name": "",
+                                    "path": "",
+                                    "menus": [
+                                        {
+                                            "id": 0,
+                                            "name": "",
+                                            "perm": ""
+                                        }
+                                    ],
+                                    "remark": "",
+                                    "methods": [
+                                        ""
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        },
+        "/v1/api/update/": {
+            "post": {
+                "description": "更新配置项",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "更新配置项",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer",
+                        "description": "主键"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "方法名"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "API名称"
+                    },
+                    {
+                        "name": "path",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "API路径"
+                    },
+                    {
+                        "name": "menus",
+                        "in": "formData",
+                        "required": false,
+                        "type": "integer",
+                        "description": "权限菜单按钮ID列表"
+                    },
+                    {
+                        "name": "remark",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "备注"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回数据为空",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "请求状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.NoneRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {}
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
         }
     },
     "definitions": {
@@ -6103,6 +6454,75 @@
                 "visible"
             ]
         },
+        "AdminCore.V1MenusPageReq": {
+            "type": "object",
+            "properties": {
+                "keywords": {
+                    "type": "string",
+                    "description": "关键字"
+                },
+                "type": {
+                    "type": "integer",
+                    "description": "菜单类型, 忽略本参数 取值范围及含义: 1 - MENU; 2 - CATALOG; 3 - EXTLINK; 4 - BUTTON;"
+                },
+                "pageNum": {
+                    "type": "integer",
+                    "description": "页码"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "description": "每页记录数"
+                }
+            },
+            "required": [
+                "keywords",
+                "type",
+                "pageNum",
+                "pageSize"
+            ]
+        },
+        "AdminCore.V1MenusPageRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "description": "菜单列表",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1MenuTiny"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
+            "required": [
+                "items",
+                "total"
+            ]
+        },
+        "AdminCore.V1MenuTiny": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "菜单ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "菜单名称"
+                },
+                "perm": {
+                    "type": "string",
+                    "description": "按钮权限标识"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "perm"
+            ]
+        },
         "AdminCore.V1DeptListReq": {
             "type": "object",
             "properties": {
@@ -7236,6 +7656,198 @@
                 "name",
                 "key",
                 "value",
+                "remark"
+            ]
+        },
+        "AdminCore.V1ApiPageReq": {
+            "type": "object",
+            "properties": {
+                "keyword": {
+                    "type": "string",
+                    "description": "路径名称搜索"
+                },
+                "pageNum": {
+                    "type": "integer",
+                    "description": "页码"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "description": "每页记录数"
+                }
+            },
+            "required": [
+                "keyword",
+                "pageNum",
+                "pageSize"
+            ]
+        },
+        "AdminCore.V1ApiPageRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "description": "列表",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1ApiItem"
+                    }
+                },
+                "button": {
+                    "type": "integer",
+                    "description": "按钮类型"
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
+            "required": [
+                "items",
+                "button",
+                "total"
+            ]
+        },
+        "AdminCore.V1ApiItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "主键"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "请求方法"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "API名称"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "API路径"
+                },
+                "menus": {
+                    "type": "array",
+                    "description": "API 菜单列表",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "remark": {
+                    "type": "string",
+                    "description": "备注"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新时间"
+                }
+            },
+            "required": [
+                "id",
+                "method",
+                "name",
+                "path",
+                "menus",
+                "remark",
+                "updateTime"
+            ]
+        },
+        "AdminCore.V1ApiFormReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "配置 id"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        },
+        "AdminCore.V1ApiFormRsp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "主键"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "请求方法"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "API名称"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "API路径"
+                },
+                "menus": {
+                    "type": "array",
+                    "description": "API 菜单列表",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1MenuTiny"
+                    }
+                },
+                "remark": {
+                    "type": "string",
+                    "description": "备注"
+                },
+                "methods": {
+                    "type": "array",
+                    "description": "方法列表",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "method",
+                "name",
+                "path",
+                "menus",
+                "remark",
+                "methods"
+            ]
+        },
+        "AdminCore.V1ApiUpdateReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "主键"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "方法名"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "API名称"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "API路径"
+                },
+                "menus": {
+                    "type": "array",
+                    "description": "权限菜单按钮ID列表",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "remark": {
+                    "type": "string",
+                    "description": "备注"
+                }
+            },
+            "required": [
+                "id",
+                "method",
+                "name",
+                "path",
+                "menus",
                 "remark"
             ]
         }

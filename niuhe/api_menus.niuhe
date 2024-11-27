@@ -19,11 +19,9 @@ class MenuTypeGroup(ConstGroup):
     CATALOG = Item(2, 'CATALOG')
     EXTLINK = Item(3, 'EXTLINK')
     BUTTON = Item(4, 'BUTTON')
-    
 
 class MenuItem(Message):
     '''菜单视图对象'''
-    children: Optional[List['MenuVO']]
     id = required.LongField(desc='菜单ID')
     parentId = optional.LongField(desc='父菜单ID')
     name = required.StringField(desc='菜单名称')
@@ -137,6 +135,18 @@ class V1MenusStatusReq(Message):
     id = required.LongField(desc='菜单ID')
     visible = required.EnumField(desc='菜单状态', group=MenuStatusEnum)
 
+class V1MenusPageReq(Message):
+    '''菜单列表请求'''
+    keywords = optional.StringField(desc='关键字')
+    type = optional.EnumField(desc='菜单类型, 忽略本参数', group=MenuTypeGroup)
+    pageNum = optional.IntegerField(desc='页码')
+    pageSize = optional.IntegerField(desc='每页记录数')
+
+class V1MenusPageRsp(Message):
+    '''菜单列表响应'''
+    items = repeated.MessageField(cls=comm.V1MenuTiny, desc='菜单列表')
+    total = required.LongField(desc='总记录数')
+
 with services():
     GET('菜单列表', 'v1/menus/list/', V1MenusListReq, wraps(V1MenusListRsp))
     POST('删除菜单', 'v1/menus/delete/', V1MenusDeleteReq, wraps(comm.NoneRsp))
@@ -146,4 +156,5 @@ with services():
     GET('菜单表单', '/v1/menus/form/', V1MenusFormReq, wraps(V1MenusFormRsp))
     POST('修改菜单', '/v1/menus/update/', V1MenusUpdateReq, wraps(comm.NoneRsp))
     POST('修改菜单状态', '/v1/menus/status/', V1MenusStatusReq, wraps(comm.NoneRsp))
+    GET('菜单分页列表', '/v1/menus/page/', V1MenusPageReq, wraps(V1MenusPageRsp))
 
