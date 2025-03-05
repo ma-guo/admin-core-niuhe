@@ -16,50 +16,50 @@ class FileVendorEnum(ConstGroup):
     Aliyun = Item('aliyun', '阿里云存储')
     Tencent = Item('tencent', '腾讯云存储')
 
-class V1FileItem(Message):
+class V1FileItem():
     '''文件结构信息'''
-    id = required.LongField(desc='文件ID')
-    name = required.StringField(desc='文件名')
-    url = required.StringField(desc='文件URL')
-    key = optional.StringField(desc='文件key')
-    vendor = optional.StringEnumField(desc='菜单类型', group=FileVendorEnum)
-    createTime = optional.StringField(desc='创建时间')
-    deleted = optional.BooleanField(desc='是否删除')
-    vendorName = optional.StringField(desc='文件存储提供商')
+    id = required.Long(desc='文件ID')
+    name = required.String(desc='文件名')
+    url = required.String(desc='文件URL')
+    key = optional.String(desc='文件key')
+    vendor = optional.StringEnum(desc='菜单类型', group=FileVendorEnum)
+    createTime = optional.String(desc='创建时间')
+    deleted = optional.Boolean(desc='是否删除')
+    vendorName = optional.String(desc='文件存储提供商')
 
-class V1FilesUploadRsp(Message):
+class V1FilesUploadRsp():
     '''文件上传请求'''
-    name = optional.StringField(desc='文件名')
-    url = optional.StringField(desc='文件URL')
-class V1FilesDeleteReq(Message):
+    name = optional.String(desc='文件名')
+    url = optional.String(desc='文件URL')
+class V1FilesDeleteReq():
     '''文件删除请求'''
-    filePath = required.StringField(desc='文件路径')
+    filePath = required.String(desc='文件路径')
 
-class V1FileFetchReq(Message):
-    url = required.StringField(desc='文件URL')
+class V1FileFetchReq():
+    url = required.String(desc='文件URL')
 
-class V1FilePageReq(Message):
+class V1FilePageReq():
     '''文件分页请求'''
-    pageNum = required.IntegerField(desc='页码')
-    pageSize = required.IntegerField(desc='每页数量')
-    vendor = optional.StringField(desc='文件存储提供商')
-    name = optional.StringField(desc='文件名')
+    pageNum = required.Integer(desc='页码')
+    pageSize = required.Integer(desc='每页数量')
+    vendor = optional.String(desc='文件存储提供商')
+    name = optional.String(desc='文件名')
 
-class V1FilePageRsp(Message):
-    items = repeated.MessageField(desc='文件列表', cls=V1FileItem)
-    total = required.LongField(desc='总数')
+class V1FilePageRsp():
+    items = repeated.Message(desc='文件列表', cls=V1FileItem)
+    total = required.Long(desc='总数')
 
-class V1FileFormReq(Message):
+class V1FileFormReq():
     '''文件修改弹窗请求参数'''
-    id = required.LongField(desc='文件 ID')
+    id = required.Long(desc='文件 ID')
 
 class V1FileFromRsp(V1FileItem):
     '''文件弹窗信息返回'''
-    createTime = required.StringField(desc='创建时间')
+    createTime = required.String(desc='创建时间')
 
-class V1FileUpdateReq(Message):
-    id = required.LongField(desc='文件ID')
-    name = required.StringField(desc='文件名')
+class V1FileUpdateReq():
+    id = required.Long(desc='文件ID')
+    name = required.String(desc='文件名')
 
 with services():
     POST('文件上传请求', '/v1/files/upload/', comm.NoneReq, wraps(V1FilesUploadRsp ))

@@ -1,61 +1,61 @@
 include('comm.niuhe')
 
 
-class V1DeptItem(Message):
+class V1DeptItem():
     '''部门信息'''
-    id = required.LongField(desc='部门id')
-    parentId = optional.LongField(desc='父部门id')
-    name = required.StringField(desc='部门名称')
-    sort = optional.IntegerField(desc='排序')
-    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
-    createTime = optional.StringField(desc='创建时间')
-    updateTime = optional.StringField(desc='修改时间')
-    children = repeated.MessageField(cls=V1DeptItem, desc='子部门')
+    id = required.Long(desc='部门id')
+    parentId = optional.Long(desc='父部门id')
+    name = required.String(desc='部门名称')
+    sort = optional.Integer(desc='排序')
+    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    createTime = optional.String(desc='创建时间')
+    updateTime = optional.String(desc='修改时间')
+    children = repeated.Message(cls=V1DeptItem, desc='子部门')
 
-class V1DeptListReq(Message):
+class V1DeptListReq():
     '''部门列表请求'''
-    keyword = optional.StringField(desc='搜索关键词')
-    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+    keyword = optional.String(desc='搜索关键词')
+    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
-class V1DeptListRsp(Message):
+class V1DeptListRsp():
     '''部门列表响应'''
-    items = repeated.MessageField(cls=V1DeptItem, desc='部门列表')
+    items = repeated.Message(cls=V1DeptItem, desc='部门列表')
 
-class V1DeptAddReq(Message):
+class V1DeptAddReq():
     '''部门添加请求参数'''
-    id = optional.LongField(desc='部门id, 前端使用')
-    parentId = required.LongField(desc='父部门id')
-    name = required.StringField(desc='部门名称')
-    sort = optional.IntegerField(desc='排序')
-    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+    id = optional.Long(desc='部门id, 前端使用')
+    parentId = required.Long(desc='父部门id')
+    name = required.String(desc='部门名称')
+    sort = optional.Integer(desc='排序')
+    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
-class V1DeptOptionsRsp(Message):
+class V1DeptOptionsRsp():
     '''部门下拉列表响应'''
-    items = repeated.MessageField(cls=comm.LongOptions, desc='部门列表')
+    items = repeated.Message(cls=comm.LongOptions, desc='部门列表')
 
-class V1DeptUpdateReq(Message):
+class V1DeptUpdateReq():
     '''修改部门请求参数'''
-    id = required.LongField(desc='部门id')
-    parentId = required.LongField(desc='父部门id')
-    name = required.StringField(desc='部门名称')
-    sort = optional.IntegerField(desc='排序')
-    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+    id = required.Long(desc='部门id')
+    parentId = required.Long(desc='父部门id')
+    name = required.String(desc='部门名称')
+    sort = optional.Integer(desc='排序')
+    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
-class V1DeptFormReq(Message):
+class V1DeptFormReq():
     '''获取部门表单数据请求参数'''
-    id = required.LongField(desc='部门id')
+    id = required.Long(desc='部门id')
 
-class V1DeptFormRsp(Message):
+class V1DeptFormRsp():
     '''获取部门表单数据返回参数'''
-    id = required.LongField(desc='部门id')
-    parentId = required.LongField(desc='父部门id')
-    name = required.StringField(desc='部门名称')
-    sort = optional.IntegerField(desc='排序')
-    status = optional.EnumField(desc='状态', group=comm.CommStatusEnum)
+    id = required.Long(desc='部门id')
+    parentId = required.Long(desc='父部门id')
+    name = required.String(desc='部门名称')
+    sort = optional.Integer(desc='排序')
+    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
-class V1DeptDeleteReq(Message):
+class V1DeptDeleteReq():
     '''删除部门请求参数'''
-    ids = required.StringField(desc='部门ID，多个以英文逗号(,)分割')
+    ids = required.String(desc='部门ID，多个以英文逗号(,)分割')
 
 with services():
     GET('获取部门列表', '/v1/dept/list/', V1DeptListReq, wraps(V1DeptListRsp))

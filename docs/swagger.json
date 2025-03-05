@@ -70,7 +70,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -78,7 +78,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -103,7 +103,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.AuthLoginReq"
             }
         },
         "/v1/auth/logout/": {
@@ -127,7 +128,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -135,7 +136,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -155,7 +156,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/auth/captcha/": {
@@ -179,7 +181,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -187,7 +189,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -212,7 +214,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/users/me/": {
@@ -236,7 +239,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -244,7 +247,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -275,7 +278,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/users/page/": {
@@ -349,7 +353,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -357,7 +361,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -394,7 +398,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersPageReq"
             }
         },
         "/v1/users/add/": {
@@ -505,7 +510,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -513,7 +518,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -533,7 +538,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersAddReq"
             }
         },
         "/v1/users/form/": {
@@ -565,7 +571,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -573,7 +579,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -606,7 +612,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UserFormReq"
             }
         },
         "/v1/users/update/": {
@@ -710,7 +717,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -718,7 +725,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -738,7 +745,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UserUpdateReq"
             }
         },
         "/v1/users/delete/": {
@@ -770,7 +778,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -778,7 +786,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -798,7 +806,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersDeleteReq"
             }
         },
         "/v1/users/export/": {
@@ -872,7 +881,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -880,7 +889,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -900,7 +909,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersPageReq"
             }
         },
         "/v1/users/template/": {
@@ -924,7 +934,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -932,7 +942,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -952,7 +962,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/users/import/": {
@@ -973,23 +984,8 @@
                         "description": "json response",
                         "schema": {
                             "type": "object",
-                            "properties": {
-                                "result": {
-                                    "type": "number",
-                                    "description": "请求状态码"
-                                },
-                                "data": {
-                                    "description": "成功时返回数据",
-                                    "$ref": "#/definitions/AdminCore.undefined"
-                                },
-                                "message": {
-                                    "type": "string",
-                                    "description": "失败提示消息"
-                                }
-                            },
-                            "required": [
-                                "result"
-                            ]
+                            "properties": {},
+                            "required": []
                         },
                         "examples": {
                             "application/json": {
@@ -1004,7 +1000,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": ""
             }
         },
         "/v1/users/password/": {
@@ -1043,7 +1040,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1051,7 +1048,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1071,7 +1068,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersPasswordReq"
             }
         },
         "/v1/users/status/": {
@@ -1114,7 +1112,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1122,7 +1120,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1142,7 +1140,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1UsersStatusReq"
             }
         },
         "/v1/roles/page/": {
@@ -1188,7 +1187,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1196,7 +1195,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1229,7 +1228,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesPageReq"
             }
         },
         "/v1/roles/options/": {
@@ -1253,7 +1253,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1261,7 +1261,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1288,7 +1288,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/roles/add/": {
@@ -1365,7 +1366,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1373,7 +1374,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1393,7 +1394,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesAddReq"
             }
         },
         "/v1/roles/form/": {
@@ -1425,7 +1427,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1433,7 +1435,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1460,7 +1462,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesFormReq"
             }
         },
         "/v1/roles/update/": {
@@ -1537,7 +1540,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1545,7 +1548,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1565,7 +1568,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesUpdateReq"
             }
         },
         "/v1/roles/delete/": {
@@ -1597,7 +1601,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1605,7 +1609,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1625,7 +1629,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesDeleteReq"
             }
         },
         "/v1/roles/menuids/": {
@@ -1657,7 +1662,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1665,7 +1670,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1689,7 +1694,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesMenuIdsReq"
             }
         },
         "/v1/roles/menus/": {
@@ -1728,7 +1734,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1736,7 +1742,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1756,7 +1762,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesMenusReq"
             }
         },
         "/v1/roles/status/": {
@@ -1799,7 +1806,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1807,7 +1814,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1827,7 +1834,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1RolesStatusReq"
             }
         },
         "/v1/menus/list/": {
@@ -1883,7 +1891,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1891,7 +1899,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1931,7 +1939,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusListReq"
             }
         },
         "/v1/menus/delete/": {
@@ -1963,7 +1972,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -1971,7 +1980,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -1991,7 +2000,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusDeleteReq"
             }
         },
         "/v1/menus/add/": {
@@ -2118,7 +2128,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2126,7 +2136,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2146,7 +2156,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusAddReq"
             }
         },
         "/v1/menus/options/": {
@@ -2170,7 +2181,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2178,7 +2189,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2208,7 +2219,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/menus/routes/": {
@@ -2232,7 +2244,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2240,7 +2252,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2281,7 +2293,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/menus/form/": {
@@ -2313,7 +2326,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2321,7 +2334,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2355,7 +2368,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusFormReq"
             }
         },
         "/v1/menus/update/": {
@@ -2482,7 +2496,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2490,7 +2504,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2510,7 +2524,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusUpdateReq"
             }
         },
         "/v1/menus/status/": {
@@ -2553,7 +2568,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2561,7 +2576,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2581,7 +2596,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusStatusReq"
             }
         },
         "/v1/menus/page/": {
@@ -2640,7 +2656,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2648,7 +2664,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2677,7 +2693,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1MenusPageReq"
             }
         },
         "/v1/dept/list/": {
@@ -2720,7 +2737,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2728,7 +2745,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2763,7 +2780,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DeptListReq"
             }
         },
         "/v1/dept/add/": {
@@ -2827,7 +2845,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2835,7 +2853,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2855,7 +2873,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DeptAddReq"
             }
         },
         "/v1/dept/options/": {
@@ -2879,7 +2898,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2887,7 +2906,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -2917,7 +2936,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/dept/update/": {
@@ -2981,7 +3001,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -2989,7 +3009,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3009,7 +3029,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DeptUpdateReq"
             }
         },
         "/v1/dept/form/": {
@@ -3041,7 +3062,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3049,7 +3070,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3075,7 +3096,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DeptFormReq"
             }
         },
         "/v1/dept/delete/": {
@@ -3107,7 +3129,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3115,7 +3137,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3135,7 +3157,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DeptDeleteReq"
             }
         },
         "/v1/dict/page/": {
@@ -3188,7 +3211,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3196,7 +3219,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3227,7 +3250,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictPageReq"
             }
         },
         "/v1/dict/options/": {
@@ -3259,7 +3283,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3267,7 +3291,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3297,7 +3321,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictOptionsReq"
             }
         },
         "/v1/dict/form/": {
@@ -3329,7 +3354,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3337,7 +3362,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3365,7 +3390,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictFormReq"
             }
         },
         "/v1/dict/add/": {
@@ -3443,7 +3469,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3451,7 +3477,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3471,7 +3497,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictAddReq"
             }
         },
         "/v1/dict/update/": {
@@ -3549,7 +3576,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3557,7 +3584,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3577,7 +3604,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictUpdateReq"
             }
         },
         "/v1/dict/delete/": {
@@ -3609,7 +3637,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3617,7 +3645,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3637,7 +3665,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictDeleteReq"
             }
         },
         "/v1/dict_types/page/": {
@@ -3683,7 +3712,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3691,7 +3720,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3722,7 +3751,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictTypesPageReq"
             }
         },
         "/v1/dict_types/form/": {
@@ -3754,7 +3784,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3762,7 +3792,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3788,7 +3818,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictTypesFormReq"
             }
         },
         "/v1/dict_types/add/": {
@@ -3852,7 +3883,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3860,7 +3891,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3880,7 +3911,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictTypesAddReq"
             }
         },
         "/v1/dict_types/update/": {
@@ -3944,7 +3976,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -3952,7 +3984,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -3972,7 +4004,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictTypesUpdateReq"
             }
         },
         "/v1/dict_types/delete/": {
@@ -4004,7 +4037,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4012,7 +4045,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4032,7 +4065,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1DictTypesDeleteReq"
             }
         },
         "/v1/files/upload/": {
@@ -4056,7 +4090,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4064,7 +4098,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4087,7 +4121,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/files/delete/": {
@@ -4119,7 +4154,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4127,7 +4162,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4147,7 +4182,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1FilesDeleteReq"
             }
         },
         "/v1/files/fetch/": {
@@ -4179,7 +4215,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4187,7 +4223,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4207,7 +4243,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1FileFetchReq"
             }
         },
         "/v1/files/page/": {
@@ -4260,7 +4297,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4268,7 +4305,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4302,7 +4339,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1FilePageReq"
             }
         },
         "/v1/files/form/": {
@@ -4334,7 +4372,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4342,7 +4380,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4371,7 +4409,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1FileFormReq"
             }
         },
         "/v1/files/update/": {
@@ -4410,7 +4449,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4418,7 +4457,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4438,7 +4477,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1FileUpdateReq"
             }
         },
         "/v1/vendor/zones/": {
@@ -4462,7 +4502,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4470,7 +4510,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4497,7 +4537,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/vendor/init/": {
@@ -4521,7 +4562,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4529,7 +4570,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4549,7 +4590,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/vendor/list/": {
@@ -4573,7 +4615,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4581,7 +4623,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4620,7 +4662,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.NoneReq"
             }
         },
         "/v1/vendor/page/": {
@@ -4666,7 +4709,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4674,7 +4717,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4707,7 +4750,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1VendorPageReq"
             }
         },
         "/v1/vendor/form/": {
@@ -4739,7 +4783,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4747,7 +4791,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4783,7 +4827,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1VendorFormReq"
             }
         },
         "/v1/vendor/update/": {
@@ -4850,7 +4895,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4858,7 +4903,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4878,7 +4923,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1VendorUpdateReq"
             }
         },
         "/v1/api/page/": {
@@ -4922,7 +4968,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -4930,7 +4976,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -4966,7 +5012,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1ApiPageReq"
             }
         },
         "/v1/api/form/": {
@@ -4996,7 +5043,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -5004,7 +5051,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -5040,7 +5087,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1ApiFormReq"
             }
         },
         "/v1/api/update/": {
@@ -5105,7 +5153,7 @@
                             "properties": {
                                 "result": {
                                     "type": "number",
-                                    "description": "请求状态码"
+                                    "description": "返回状态码"
                                 },
                                 "data": {
                                     "description": "成功时返回数据",
@@ -5113,7 +5161,7 @@
                                 },
                                 "message": {
                                     "type": "string",
-                                    "description": "失败提示消息"
+                                    "description": "失败时的提示消息"
                                 }
                             },
                             "required": [
@@ -5133,7 +5181,8 @@
                 ],
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "pref": "#/definitions/AdminCore.V1ApiUpdateReq"
             }
         }
     },

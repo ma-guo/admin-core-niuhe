@@ -1,98 +1,98 @@
 include('comm.niuhe')
 
-class V1UsersMeRsp(Message):
+class V1UsersMeRsp():
     '''获取当前登录用户信息返回参数'''
-    userId = required.LongField(desc='用户ID')
-    username = required.StringField(desc='用户名')
-    nickname = required.StringField(desc='用户昵称')
-    avatar = required.StringField(desc='头像地址')
-    roles = repeated.StringField(desc='用户角色编码集合')
-    perms = repeated.StringField(desc='用户权限标识集合')
+    userId = required.Long(desc='用户ID')
+    username = required.String(desc='用户名')
+    nickname = required.String(desc='用户昵称')
+    avatar = required.String(desc='头像地址')
+    roles = repeated.String(desc='用户角色编码集合')
+    perms = repeated.String(desc='用户权限标识集合')
 
-class V1UserPageItem(Message):
+class V1UserPageItem():
     '''用户分页列表项数据结构'''
-    id = required.LongField(desc='用户ID')
-    username = required.StringField(desc='用户名')
-    nickname = required.StringField(desc='用户昵称')
-    mobile = required.StringField(desc='手机号')
-    genderLabel = required.StringField(desc='性别')
-    avatar = required.StringField(desc='头像地址')
-    email = required.StringField(desc='用户邮箱')
-    status = required.EnumField(desc='用户状态', group=comm.CommStatusEnum)
-    deptName = required.StringField(desc='部门名称')
-    roleNames = required.StringField(desc='角色名称')
-    createTime = required.StringField(desc='创建时间')
-class V1UsersPageReq(Message):
-    keywords = optional.StringField(desc='关键字')
-    status = optional.IntegerField(desc='用户状态')
-    deptId = optional.LongField(desc='部门ID')
-    pageNum = optional.IntegerField(desc='页码')
-    pageSize = optional.IntegerField(desc='每页条数')
-    startTime = optional.StringField(desc='开始时间-年月日')
-    endTime = optional.StringField(desc='结束时间-年月日')
+    id = required.Long(desc='用户ID')
+    username = required.String(desc='用户名')
+    nickname = required.String(desc='用户昵称')
+    mobile = required.String(desc='手机号')
+    genderLabel = required.String(desc='性别')
+    avatar = required.String(desc='头像地址')
+    email = required.String(desc='用户邮箱')
+    status = required.Enum(desc='用户状态', group=comm.CommStatusEnum)
+    deptName = required.String(desc='部门名称')
+    roleNames = required.String(desc='角色名称')
+    createTime = required.String(desc='创建时间')
+class V1UsersPageReq():
+    keywords = optional.String(desc='关键字')
+    status = optional.Integer(desc='用户状态')
+    deptId = optional.Long(desc='部门ID')
+    pageNum = optional.Integer(desc='页码')
+    pageSize = optional.Integer(desc='每页条数')
+    startTime = optional.String(desc='开始时间-年月日')
+    endTime = optional.String(desc='结束时间-年月日')
 
-class V1UsersPageRsp(Message):
+class V1UsersPageRsp():
     '''用户分页列表返回参数'''
-    total = required.LongField(desc='总数')
-    list = repeated.MessageField(cls=V1UserPageItem, desc='用户列表')
+    total = required.Long(desc='总数')
+    list = repeated.Message(cls=V1UserPageItem, desc='用户列表')
 
-class V1UsersAddReq(Message):
+class V1UsersAddReq():
     '''新增用户请求参数'''
-    id = optional.LongField(desc='用户ID')
-    username = required.StringField(desc='用户名')
-    nickname = required.StringField(desc='用户昵称')
-    password = optional.StringField(desc='密码')
-    mobile = optional.StringField(desc='手机号')
-    gender = optional.EnumField(desc='性别', group=comm.GenderEnum)
-    avatar = optional.StringField(desc='头像地址')
-    email = optional.StringField(desc='用户邮箱')
-    status = optional.EnumField(desc='用户状态', group=comm.CommStatusEnum)
-    deptId = optional.LongField(desc='部门ID')
-    roleIds = repeated.LongField(desc='角色ID集合')
+    id = optional.Long(desc='用户ID')
+    username = required.String(desc='用户名')
+    nickname = required.String(desc='用户昵称')
+    password = optional.String(desc='密码')
+    mobile = optional.String(desc='手机号')
+    gender = optional.Enum(desc='性别', group=comm.GenderEnum)
+    avatar = optional.String(desc='头像地址')
+    email = optional.String(desc='用户邮箱')
+    status = optional.Enum(desc='用户状态', group=comm.CommStatusEnum)
+    deptId = optional.Long(desc='部门ID')
+    roleIds = repeated.Long(desc='角色ID集合')
 
-class V1UserFormReq(Message):
+class V1UserFormReq():
     '''用户表单请求参数'''
-    userId = required.LongField(desc='用户ID')
+    userId = required.Long(desc='用户ID')
 
-class V1UserFormRsp(Message):
+class V1UserFormRsp():
     '''用户表单返回参数'''
-    id = required.LongField(desc='用户ID')
-    username = required.StringField(desc='用户名')
-    nickname = required.StringField(desc='用户昵称')
-    mobile = required.StringField(desc='手机号')
-    gender = optional.EnumField(desc='性别', group=comm.GenderEnum)
-    avatar = required.StringField(desc='头像地址')
-    email = required.StringField(desc='用户邮箱')
-    status = required.EnumField(desc='用户状态', group=comm.CommStatusEnum)
-    deptId = required.LongField(desc='部门ID')
-    roleIds = repeated.LongField(desc='角色ID集合')
+    id = required.Long(desc='用户ID')
+    username = required.String(desc='用户名')
+    nickname = required.String(desc='用户昵称')
+    mobile = required.String(desc='手机号')
+    gender = optional.Enum(desc='性别', group=comm.GenderEnum)
+    avatar = required.String(desc='头像地址')
+    email = required.String(desc='用户邮箱')
+    status = required.Enum(desc='用户状态', group=comm.CommStatusEnum)
+    deptId = required.Long(desc='部门ID')
+    roleIds = repeated.Long(desc='角色ID集合')
 
-class V1UserUpdateReq(Message):
+class V1UserUpdateReq():
     '''修改用户信息参数'''
-    id = required.LongField(desc='用户ID')
-    username = required.StringField(desc='用户名')
-    nickname = required.StringField(desc='用户昵称')
-    mobile = required.StringField(desc='手机号')
-    gender = required.EnumField(desc='用户状态', group=comm.GenderEnum)
-    avatar = optional.StringField(desc='头像地址')
-    email = optional.StringField(desc='用户邮箱')
-    status = required.EnumField(desc='用户状态', group=comm.CommStatusEnum)
-    deptId = required.LongField(desc='部门ID')
-    roleIds = repeated.LongField(desc='角色ID集合')
+    id = required.Long(desc='用户ID')
+    username = required.String(desc='用户名')
+    nickname = required.String(desc='用户昵称')
+    mobile = required.String(desc='手机号')
+    gender = required.Enum(desc='用户状态', group=comm.GenderEnum)
+    avatar = optional.String(desc='头像地址')
+    email = optional.String(desc='用户邮箱')
+    status = required.Enum(desc='用户状态', group=comm.CommStatusEnum)
+    deptId = required.Long(desc='部门ID')
+    roleIds = repeated.Long(desc='角色ID集合')
 
-class V1UsersDeleteReq(Message):
+class V1UsersDeleteReq():
     '''删除用户请求参数'''
-    ids = required.StringField(desc='用户ID，多个以英文逗号(,)分割')
+    ids = required.String(desc='用户ID，多个以英文逗号(,)分割')
 
-class V1UsersPasswordReq(Message):
+class V1UsersPasswordReq():
     '''修改密码请求参数'''
-    userId = required.LongField(desc='用户id')
-    password = required.StringField(desc='新密码')
+    userId = required.Long(desc='用户id')
+    password = required.String(desc='新密码')
 
-class V1UsersStatusReq(Message):
+class V1UsersStatusReq():
     '''修改用户状态请求参数'''
-    userId = required.LongField(desc='用户ID')
-    status = required.EnumField(desc='用户状态', group=comm.CommStatusEnum)
+    userId = required.Long(desc='用户ID')
+    status = required.Enum(desc='用户状态', group=comm.CommStatusEnum)
 
 with services():
     GET('获取当前登录用户信息', '/v1/users/me/', comm.NoneReq, wraps(V1UsersMeRsp))

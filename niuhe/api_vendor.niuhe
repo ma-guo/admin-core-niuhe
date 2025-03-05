@@ -1,49 +1,49 @@
 include('comm.niuhe')
 
-class V1VendorItem(Message):
-    id = optional.LongField(desc="主键")
-    vendor = optional.StringField(desc="文件存储提供商")
-    name = optional.StringField(desc="配置名")
-    key = optional.StringField(desc="配置键")
-    value = optional.StringField(desc="配置值")
-    remark = optional.StringField(desc="备注")
-    updateTime = optional.StringField(desc='更新时间')
+class V1VendorItem():
+    id = optional.Long(desc="主键")
+    vendor = optional.String(desc="文件存储提供商")
+    name = optional.String(desc="配置名")
+    key = optional.String(desc="配置键")
+    value = optional.String(desc="配置值")
+    remark = optional.String(desc="备注")
+    updateTime = optional.String(desc='更新时间')
 
 
-class V1FilesZoneRsp(Message):
+class V1FilesZoneRsp():
     '''获取文件存储区域返回'''
-    qiniu = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptionItem)
+    qiniu = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptionItem)
 
-class V1FilesVendorsRsp(Message):
+class V1FilesVendorsRsp():
     '''获取文件存储提供商列表返回'''
-    items = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptions)
-    current = required.MessageField(desc='当前文件存储提供商', cls=V1VendorItem)
+    items = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptions)
+    current = required.Message(desc='当前文件存储提供商', cls=V1VendorItem)
 
-class V1VendorPageReq(Message):
-    vendor = optional.StringField(desc="文件存储提供商")
-    pageNum = optional.IntegerField(desc="页码")
-    pageSize = optional.IntegerField(desc="每页记录数")
+class V1VendorPageReq():
+    vendor = optional.String(desc="文件存储提供商")
+    pageNum = optional.Integer(desc="页码")
+    pageSize = optional.Integer(desc="每页记录数")
 
 
 
-class V1VendorPageRsp(Message):
-    items = repeated.MessageField(cls=V1VendorItem, desc="列表")
-    total = required.LongField(desc="总记录数")
+class V1VendorPageRsp():
+    items = repeated.Message(cls=V1VendorItem, desc="列表")
+    total = required.Long(desc="总记录数")
 
-class V1VendorFormReq(Message):
-    id = required.LongField(desc="配置 id")
+class V1VendorFormReq():
+    id = required.Long(desc="配置 id")
 
-class V1VendorFormRsp(Message):
-    item = required.MessageField(cls=V1VendorItem, desc="配置项")
-    options = repeated.MessageField(desc='文件存储提供商列表', cls=comm.StringOptionItem)
+class V1VendorFormRsp():
+    item = required.Message(cls=V1VendorItem, desc="配置项")
+    options = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptionItem)
 
-class V1VendorUpdateReq(Message):
-    id = required.LongField(desc="主键")
-    vendor = required.StringField(desc="文件存储提供商")
-    name = required.StringField(desc="配置名")
-    key = required.StringField(desc="配置键")
-    value = required.StringField(desc="配置值")
-    remark = optional.StringField(desc="备注")
+class V1VendorUpdateReq():
+    id = required.Long(desc="主键")
+    vendor = required.String(desc="文件存储提供商")
+    name = required.String(desc="配置名")
+    key = required.String(desc="配置键")
+    value = required.String(desc="配置值")
+    remark = optional.String(desc="备注")
 
 
 with services():

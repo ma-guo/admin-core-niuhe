@@ -5,6 +5,6 @@ typings/types.d.ts
 typings/event.d.ts
 typings/request.ts
 typings/api.ts
-niuhe/.config
+niuhe/.config.json5
 .vscode
 conf/admincore.yaml

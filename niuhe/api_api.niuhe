@@ -1,49 +1,49 @@
 include('comm.niuhe')
 include('api_menus.niuhe')
 
-class V1ApiItem(Message):
-    id = optional.LongField(desc="主键")
-    method = required.StringField(desc="请求方法")
-    name = required.StringField(desc="API名称")
-    path = required.StringField(desc="API路径")
-    menus = repeated.StringField(desc="API 菜单列表")
-    remark = optional.StringField(desc="备注")
-    updateTime = optional.StringField(desc='更新时间')
+class V1ApiItem():
+    id = optional.Long(desc="主键")
+    method = required.String(desc="请求方法")
+    name = required.String(desc="API名称")
+    path = required.String(desc="API路径")
+    menus = repeated.String(desc="API 菜单列表")
+    remark = optional.String(desc="备注")
+    updateTime = optional.String(desc='更新时间')
 
 
 
-class V1ApiPageReq(Message):
-    keyword = optional.StringField(desc="路径名称搜索")
-    pageNum = optional.IntegerField(desc="页码")
-    pageSize = optional.IntegerField(desc="每页记录数")
+class V1ApiPageReq():
+    keyword = optional.String(desc="路径名称搜索")
+    pageNum = optional.Integer(desc="页码")
+    pageSize = optional.Integer(desc="每页记录数")
 
 
 
-class V1ApiPageRsp(Message):
+class V1ApiPageRsp():
     '''分页获取API列表'''
-    items = repeated.MessageField(cls=V1ApiItem, desc="列表")
-    button = required.IntegerField(desc="按钮类型")
-    total = required.LongField(desc="总记录数")
+    items = repeated.Message(cls=V1ApiItem, desc="列表")
+    button = required.Integer(desc="按钮类型")
+    total = required.Long(desc="总记录数")
 
-class V1ApiFormReq(Message):
-    id = required.LongField(desc="配置 id")
+class V1ApiFormReq():
+    id = required.Long(desc="配置 id")
 
-class V1ApiFormRsp(Message):
-    id = required.LongField(desc="主键")
-    method = required.StringField(desc="请求方法")
-    name = required.StringField(desc="API名称")
-    path = required.StringField(desc="API路径")
-    menus = repeated.MessageField(desc="API 菜单列表", cls=comm.V1MenuTiny)
-    remark = required.StringField(desc="备注")
-    methods = repeated.StringField(desc='方法列表')
+class V1ApiFormRsp():
+    id = required.Long(desc="主键")
+    method = required.String(desc="请求方法")
+    name = required.String(desc="API名称")
+    path = required.String(desc="API路径")
+    menus = repeated.Message(desc="API 菜单列表", cls=comm.V1MenuTiny)
+    remark = required.String(desc="备注")
+    methods = repeated.String(desc='方法列表')
 
-class V1ApiUpdateReq(Message):
-    id = required.LongField(desc="主键")
-    method = required.StringField(desc="方法名")
-    name = required.StringField(desc="API名称")
-    path = required.StringField(desc="API路径")
-    menus = repeated.LongField(desc="权限菜单按钮ID列表")
-    remark = optional.StringField(desc="备注")
+class V1ApiUpdateReq():
+    id = required.Long(desc="主键")
+    method = required.String(desc="方法名")
+    name = required.String(desc="API名称")
+    path = required.String(desc="API路径")
+    menus = repeated.Long(desc="权限菜单按钮ID列表")
+    remark = optional.String(desc="备注")
 
 
 with services():

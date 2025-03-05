@@ -1,27 +1,27 @@
 
 
-class NoneReq(Message):
+class NoneReq():
     '''本请求不需要参数'''
     pass
 
-class NoneRsp(Message):
+class NoneRsp():
     '''返回数据为空'''
     pass
 
-class IntOptionItem(Message):
+class IntOptionItem():
     '''选项数值'''
-    value = required.IntegerField(desc='选项ID')
-    label = required.StringField(desc='选项名称')
+    value = required.Integer(desc='选项ID')
+    label = required.String(desc='选项名称')
 
-class LongOptionItem(Message):
+class LongOptionItem():
     '''选项数值'''
-    value = required.LongField(desc='选项ID')
-    label = required.StringField(desc='选项名称')
+    value = required.Long(desc='选项ID')
+    label = required.String(desc='选项名称')
 
-class StringOptionItem(Message):
+class StringOptionItem():
     '''选项数值'''
-    value = required.StringField(desc='选项ID')
-    label = required.StringField(desc='选项名称')
+    value = required.String(desc='选项ID')
+    label = required.String(desc='选项名称')
 
 class CommStatusEnum(ConstGroup):
     '''通用状态枚举'''
@@ -41,26 +41,26 @@ class DataScopeEnum(ConstGroup):
     Dept = Item(2, '本部门数据')
     Self = Item(3, '本人数据')
 
-class LongOptions(Message):
-    value = required.LongField(desc='选项ID')
-    label = required.StringField(desc='选项名称')
-    children = repeated.MessageField(cls=LongOptions, desc='子选项')
+class LongOptions():
+    value = required.Long(desc='选项ID')
+    label = required.String(desc='选项名称')
+    children = repeated.Message(cls=LongOptions, desc='子选项')
 
-class StringOptions(Message):
-    value = required.StringField(desc='选项ID')
-    label = required.StringField(desc='选项名称')
-    children = repeated.MessageField(cls=StringOptions, desc='子选项')
+class StringOptions():
+    value = required.String(desc='选项ID')
+    label = required.String(desc='选项名称')
+    children = repeated.Message(cls=StringOptions, desc='子选项')
 
-class V1DictTypesItem(Message):
-    id = optional.LongField(desc="主键")
-    name = optional.StringField(desc="类型名称")
-    code = optional.StringField(desc="类型编码")
-    remark = optional.StringField(desc="备注")
-    status = optional.EnumField(desc="状态", group=CommStatusEnum)
+class V1DictTypesItem():
+    id = optional.Long(desc="主键")
+    name = optional.String(desc="类型名称")
+    code = optional.String(desc="类型编码")
+    remark = optional.String(desc="备注")
+    status = optional.Enum(desc="状态", group=CommStatusEnum)
 
-class V1MenuTiny(Message):
+class V1MenuTiny():
     '''菜单视图对象'''
-    id = required.LongField(desc='菜单ID')
-    name = required.StringField(desc='菜单名称')
-    perm = optional.StringField(desc='按钮权限标识')
+    id = required.Long(desc='菜单ID')
+    name = required.String(desc='菜单名称')
+    perm = optional.String(desc='按钮权限标识')
     
