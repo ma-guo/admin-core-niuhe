@@ -4396,9 +4396,9 @@
                                     "url": "",
                                     "key": "",
                                     "vendor": "",
-                                    "createTime": "",
                                     "deleted": false,
-                                    "vendorName": ""
+                                    "vendorName": "",
+                                    "createTime": ""
                                 }
                             }
                         }
@@ -7459,10 +7459,6 @@
                     "type": "string",
                     "description": "菜单类型 取值范围及含义: local - 本机存储; qiniu - 七牛存储; aliyun - 阿里云存储; tencent - 腾讯云存储;"
                 },
-                "createTime": {
-                    "type": "string",
-                    "description": "创建时间"
-                },
                 "deleted": {
                     "type": "boolean",
                     "description": "是否删除"
@@ -7470,6 +7466,10 @@
                 "vendorName": {
                     "type": "string",
                     "description": "文件存储提供商"
+                },
+                "createTime": {
+                    "type": "string",
+                    "description": "创建时间"
                 }
             },
             "required": [
@@ -7478,7 +7478,6 @@
                 "url",
                 "key",
                 "vendor",
-                "createTime",
                 "deleted",
                 "vendorName",
                 "createTime"

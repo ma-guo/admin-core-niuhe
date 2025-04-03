@@ -47,9 +47,9 @@ class V1VendorUpdateReq():
 
 
 with services():
-    GET('获取文件存储区域', '/v1/vendor/zones/', comm.NoneReq, wraps(V1FilesZoneRsp))
-    GET('初始化文件提供商参数', '/v1/vendor/init/', comm.NoneReq, wraps(comm.NoneRsp))
-    GET('获取文件存储提供商列表', '/v1/vendor/list/', comm.NoneReq, wraps(V1FilesVendorsRsp))
-    GET('文件配置列表', '/v1/vendor/page/', V1VendorPageReq, wraps(V1VendorPageRsp))
-    GET('获取配置项详情值', '/v1/vendor/form/', V1VendorFormReq, wraps(V1VendorFormRsp))
-    POST('更新配置项', '/v1/vendor/update/', V1VendorUpdateReq, wraps(comm.NoneRsp))
+    GET('获取文件存储区域', '/v1/vendor/zones/', comm.NoneReq, V1FilesZoneRsp)
+    GET('初始化文件提供商参数', '/v1/vendor/init/', comm.NoneReq, comm.NoneRsp)
+    GET('获取文件存储提供商列表', '/v1/vendor/list/', comm.NoneReq, V1FilesVendorsRsp)
+    GET('文件配置列表', '/v1/vendor/page/', V1VendorPageReq, V1VendorPageRsp)
+    GET('获取配置项详情值', '/v1/vendor/form/', V1VendorFormReq, V1VendorFormRsp)
+    POST('更新配置项', '/v1/vendor/update/', V1VendorUpdateReq, comm.NoneRsp)

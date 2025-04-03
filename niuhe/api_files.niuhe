@@ -62,9 +62,9 @@ class V1FileUpdateReq():
     name = required.String(desc='文件名')
 
 with services():
-    POST('文件上传请求', '/v1/files/upload/', comm.NoneReq, wraps(V1FilesUploadRsp ))
-    POST('文件删除请求', '/v1/files/delete/', V1FilesDeleteReq, wraps(comm.NoneRsp))
-    GET('文件下载请求', '/v1/files/fetch/', V1FileFetchReq, wraps(comm.NoneRsp))
-    GET('文件分页请求', '/v1/files/page/', V1FilePageReq, wraps(V1FilePageRsp))
-    GET('文件修改弹窗请求', '/v1/files/form/', V1FileFormReq, wraps(V1FileFromRsp))
-    POST('文件修改请求', '/v1/files/update/', V1FileUpdateReq, wraps(comm.NoneRsp))
+    POST('文件上传请求', '/v1/files/upload/', comm.NoneReq, V1FilesUploadRsp )
+    POST('文件删除请求', '/v1/files/delete/', V1FilesDeleteReq, comm.NoneRsp)
+    GET('文件下载请求', '/v1/files/fetch/', V1FileFetchReq, comm.NoneRsp)
+    GET('文件分页请求', '/v1/files/page/', V1FilePageReq, V1FilePageRsp)
+    GET('文件修改弹窗请求', '/v1/files/form/', V1FileFormReq, V1FileFromRsp)
+    POST('文件修改请求', '/v1/files/update/', V1FileUpdateReq, comm.NoneRsp)

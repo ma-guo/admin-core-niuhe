@@ -58,9 +58,9 @@ class V1DeptDeleteReq():
     ids = required.String(desc='部门ID，多个以英文逗号(,)分割')
 
 with services():
-    GET('获取部门列表', '/v1/dept/list/', V1DeptListReq, wraps(V1DeptListRsp))
-    POST('添加部门', '/v1/dept/add/', V1DeptAddReq, wraps(comm.NoneRsp))
-    GET('获取部门下拉列表', '/v1/dept/options/', comm.NoneReq, wraps(V1DeptOptionsRsp))
-    POST('修改部门', '/v1/dept/update/', V1DeptUpdateReq, wraps(comm.NoneRsp))
-    GET('获取部门表单数据', '/v1/dept/form/', V1DeptFormReq, wraps(V1DeptFormRsp))
-    POST('删除部门', '/v1/dept/delete/', V1DeptDeleteReq, wraps(comm.NoneRsp))
+    GET('获取部门列表', '/v1/dept/list/', V1DeptListReq,V1DeptListRsp)
+    POST('添加部门', '/v1/dept/add/', V1DeptAddReq, comm.NoneRsp)
+    GET('获取部门下拉列表', '/v1/dept/options/', comm.NoneReq, V1DeptOptionsRsp)
+    POST('修改部门', '/v1/dept/update/', V1DeptUpdateReq, comm.NoneRsp)
+    GET('获取部门表单数据', '/v1/dept/form/', V1DeptFormReq, V1DeptFormRsp)
+    POST('删除部门', '/v1/dept/delete/', V1DeptDeleteReq, comm.NoneRsp)

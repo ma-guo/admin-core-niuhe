@@ -148,13 +148,12 @@ class V1MenusPageRsp():
     total = required.Long(desc='总记录数')
 
 with services():
-    GET('菜单列表', 'v1/menus/list/', V1MenusListReq, wraps(V1MenusListRsp))
-    POST('删除菜单', 'v1/menus/delete/', V1MenusDeleteReq, wraps(comm.NoneRsp))
-    POST('新增菜单', 'v1/menus/add/', V1MenusAddReq, wraps(comm.NoneRsp))
-    GET('菜单下拉列表', '/v1/menus/options/', comm.NoneReq, wraps(V1MenusOptionsRsp))
-    GET('路由列表', '/v1/menus/routes/', comm.NoneReq, wraps(MenuRouteRsp))
-    GET('菜单表单', '/v1/menus/form/', V1MenusFormReq, wraps(V1MenusFormRsp))
-    POST('修改菜单', '/v1/menus/update/', V1MenusUpdateReq, wraps(comm.NoneRsp))
-    POST('修改菜单状态', '/v1/menus/status/', V1MenusStatusReq, wraps(comm.NoneRsp))
-    GET('菜单分页列表', '/v1/menus/page/', V1MenusPageReq, wraps(V1MenusPageRsp))
-
+    GET('菜单列表', 'v1/menus/list/', V1MenusListReq, V1MenusListRsp)
+    POST('删除菜单', 'v1/menus/delete/', V1MenusDeleteReq, comm.NoneRsp)
+    POST('新增菜单', 'v1/menus/add/', V1MenusAddReq, comm.NoneRsp)
+    GET('菜单下拉列表', '/v1/menus/options/', comm.NoneReq, V1MenusOptionsRsp)
+    GET('路由列表', '/v1/menus/routes/', comm.NoneReq, MenuRouteRsp)
+    GET('菜单表单', '/v1/menus/form/', V1MenusFormReq, V1MenusFormRsp)
+    POST('修改菜单', '/v1/menus/update/', V1MenusUpdateReq, comm.NoneRsp)
+    POST('修改菜单状态', '/v1/menus/status/', V1MenusStatusReq, comm.NoneRsp)
+    GET('菜单分页列表', '/v1/menus/page/', V1MenusPageReq, V1MenusPageRsp)

@@ -39,8 +39,8 @@ class V1DictTypesDeleteReq():
     ids = required.String(desc="字典类型ID，多个以英文逗号(,)分割")
 
 with services():
-    GET('字典类型分页列表', '/v1/dict_types/page/', V1DictTypesPageReq, wraps(V1DictTypesPageRsp))
-    GET('字典类型表单', '/v1/dict_types/form/', V1DictTypesFormReq, wraps(V1DictTypesFormRsp))
-    POST('新增字典类型', '/v1/dict_types/add/', V1DictTypesAddReq, wraps(comm.NoneRsp))
-    POST('修改字典类型', '/v1/dict_types/update/', V1DictTypesUpdateReq, wraps(comm.NoneRsp))
-    POST('删除字典类型', '/v1/dict_types/delete/', V1DictTypesDeleteReq, wraps(comm.NoneRsp))
+    GET('字典类型分页列表', '/v1/dict_types/page/', V1DictTypesPageReq, V1DictTypesPageRsp)
+    GET('字典类型表单', '/v1/dict_types/form/', V1DictTypesFormReq, V1DictTypesFormRsp)
+    POST('新增字典类型', '/v1/dict_types/add/', V1DictTypesAddReq, comm.NoneRsp)
+    POST('修改字典类型', '/v1/dict_types/update/', V1DictTypesUpdateReq, comm.NoneRsp)
+    POST('删除字典类型', '/v1/dict_types/delete/', V1DictTypesDeleteReq, comm.NoneRsp)

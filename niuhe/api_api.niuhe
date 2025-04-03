@@ -47,6 +47,6 @@ class V1ApiUpdateReq():
 
 
 with services():
-    GET('API列表', '/v1/api/page/', V1ApiPageReq, wraps(V1ApiPageRsp))
-    GET('获取API详情值', '/v1/api/form/', V1ApiFormReq, wraps(V1ApiFormRsp))
-    POST('更新配置项', '/v1/api/update/', V1ApiUpdateReq, wraps(comm.NoneRsp))
+    GET('API列表', '/v1/api/page/', V1ApiPageReq, V1ApiPageRsp)
+    GET('获取API详情值', '/v1/api/form/', V1ApiFormReq, V1ApiFormRsp)
+    POST('更新配置项', '/v1/api/update/', V1ApiUpdateReq, comm.NoneRsp)

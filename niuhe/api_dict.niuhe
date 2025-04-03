@@ -58,9 +58,9 @@ class V1DictDeleteReq():
     ids = required.String(desc="字典ID，多个以英文逗号(,)拼接")
 
 with services():
-    GET('字典分页列表', '/v1/dict/page/', V1DictPageReq, wraps(V1DictPageRsp))
-    GET('字典下拉列表', '/v1/dict/options/', V1DictOptionsReq, wraps(V1DictOptionsRsp))
-    GET('字典数据表单数据', '/v1/dict/form/', V1DictFormReq, wraps(V1DictFormRsp))
-    POST('新增字典', '/v1/dict/add/', V1DictAddReq, wraps(comm.NoneRsp))
-    POST('修改字典', '/v1/dict/update/', V1DictUpdateReq, wraps(comm.NoneRsp))
-    POST('删除字典', '/v1/dict/delete/', V1DictDeleteReq, wraps(comm.NoneRsp))
+    GET('字典分页列表', '/v1/dict/page/', V1DictPageReq, V1DictPageRsp)
+    GET('字典下拉列表', '/v1/dict/options/', V1DictOptionsReq, V1DictOptionsRsp)
+    GET('字典数据表单数据', '/v1/dict/form/', V1DictFormReq, V1DictFormRsp)
+    POST('新增字典', '/v1/dict/add/', V1DictAddReq, comm.NoneRsp)
+    POST('修改字典', '/v1/dict/update/', V1DictUpdateReq, comm.NoneRsp)
+    POST('删除字典', '/v1/dict/delete/', V1DictDeleteReq, comm.NoneRsp)
