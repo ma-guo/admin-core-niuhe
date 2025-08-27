@@ -1,0 +1,53 @@
+
+class DocumentItem():
+	'''文章-内容管理'''
+	id = optional.Long(desc='id')
+	name = optional.String(desc='名称')
+	markdown = required.String(desc='markdown内容')
+	html = required.String(desc='html内容')
+	version = optional.Integer(desc='版本')
+	url = optional.String(desc='url')
+	create_at = optional.String(desc='创建时间')
+	update_at = optional.String(desc='更新时间')
+
+class DocumentFormReq():
+	'''请求内容管理信息'''
+	id = required.Long(desc='记录ID', minnum=1)
+
+class DocumentPageReq():
+	'''分页查询内容管理信息'''
+	page = required.Integer(desc='页码', minnum=1)
+	size = required.Integer(desc='每页数量', minnum=1, maxnum=200)
+	name = optional.String(desc='名称')
+
+class DocumentPageRsp():
+	'''分页查询内容管理信息'''
+	total = required.Long(desc='总数')
+	items = repeated.Message(cls=DocumentItem, desc='内容管理信息')
+
+class DocumentDeleteReq():
+	'''批量删除内容管理信息'''
+	ids = repeated.Long(desc='记录ID列表', minnum=1)
+
+class DocumentNoneRsp():
+	'''内容管理无数据返回'''
+	pass
+
+class DocumentDragePageReq():
+	'''分页查询草稿信息'''
+	doc_id = required.Long(desc='文章ID', minnum=1)
+	page = required.Integer(desc='页码', minnum=1)
+	size = required.Integer(desc='每页数量', minnum=1, maxnum=50)
+
+with services():
+	GET('分页查询获取内容管理信息', '/v1/document/page/', DocumentPageReq, DocumentPageRsp)
+	GET('分页查询草稿信息', '/v1/document/draft_page/', DocumentDragePageReq, DocumentPageRsp)
+	GET('查询获取内容管理信息', '/v1/document/form/', DocumentFormReq, DocumentItem)
+	POST('添加内容管理信息', '/v1/document/add/', DocumentItem, DocumentItem)
+	POST('更新内容管理信息', '/v1/document/update/', DocumentItem, DocumentItem)
+	DELETE('删除内容管理信息', '/v1/document/delete/', DocumentDeleteReq, DocumentNoneRsp)
+	RPC('获取文章详情', get='/web/document/article/').args(
+		id = required.Long(desc='文章ID', minnum=1),
+		single = optional.Boolean(desc='是否单页'),
+		html = optional.Boolean(desc='是否直接返回HTML内容'),
+	)

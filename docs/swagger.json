@@ -2045,11 +2045,11 @@
                         "type": "string",
                         "description": "菜单类型 取值范围及含义: NULL - 无类型; CATALOG - 目录; MENU - 菜单; BUTTON - 按钮; EXTLINK - 外链;",
                         "enum": [
-                            null,
-                            null,
-                            null,
-                            null,
-                            null
+                            "NULL",
+                            "CATALOG",
+                            "MENU",
+                            "BUTTON",
+                            "EXTLINK"
                         ]
                     },
                     {
@@ -2413,11 +2413,11 @@
                         "type": "string",
                         "description": "菜单类型 取值范围及含义: NULL - 无类型; CATALOG - 目录; MENU - 菜单; BUTTON - 按钮; EXTLINK - 外链;",
                         "enum": [
-                            null,
-                            null,
-                            null,
-                            null,
-                            null
+                            "NULL",
+                            "CATALOG",
+                            "MENU",
+                            "BUTTON",
+                            "EXTLINK"
                         ]
                     },
                     {
@@ -5184,6 +5184,614 @@
                 ],
                 "pref": "#/definitions/AdminCore.V1ApiUpdateReq"
             }
+        },
+        "/v1/document/page/": {
+            "get": {
+                "description": "分页查询获取内容管理信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "分页查询获取内容管理信息",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "页码 最小值:1"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "每页数量 数值范围:1-200"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "名称"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "分页查询内容管理信息",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentPageRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "total": 0,
+                                    "items": [
+                                        {
+                                            "id": 0,
+                                            "name": "",
+                                            "markdown": "",
+                                            "html": "",
+                                            "version": 0,
+                                            "url": "",
+                                            "create_at": "",
+                                            "update_at": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentPageReq"
+            }
+        },
+        "/v1/document/draft_page/": {
+            "get": {
+                "description": "分页查询草稿信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "分页查询草稿信息",
+                "parameters": [
+                    {
+                        "name": "doc_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "文章ID 最小值:1"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "页码 最小值:1"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "每页数量 数值范围:1-50"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "分页查询内容管理信息",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentPageRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "total": 0,
+                                    "items": [
+                                        {
+                                            "id": 0,
+                                            "name": "",
+                                            "markdown": "",
+                                            "html": "",
+                                            "version": 0,
+                                            "url": "",
+                                            "create_at": "",
+                                            "update_at": ""
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentDragePageReq"
+            }
+        },
+        "/v1/document/form/": {
+            "get": {
+                "description": "查询获取内容管理信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "查询获取内容管理信息",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "记录ID 最小值:1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "文章-内容管理",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentItem"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "id": 0,
+                                    "name": "",
+                                    "markdown": "",
+                                    "html": "",
+                                    "version": 0,
+                                    "url": "",
+                                    "create_at": "",
+                                    "update_at": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentFormReq"
+            }
+        },
+        "/v1/document/add/": {
+            "post": {
+                "description": "添加内容管理信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "添加内容管理信息",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "required": false,
+                        "type": "integer",
+                        "description": "id"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "名称"
+                    },
+                    {
+                        "name": "markdown",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "markdown内容"
+                    },
+                    {
+                        "name": "html",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "html内容"
+                    },
+                    {
+                        "name": "version",
+                        "in": "formData",
+                        "required": false,
+                        "type": "integer",
+                        "description": "版本"
+                    },
+                    {
+                        "name": "url",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "url"
+                    },
+                    {
+                        "name": "create_at",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "创建时间"
+                    },
+                    {
+                        "name": "update_at",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "更新时间"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "文章-内容管理",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentItem"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "id": 0,
+                                    "name": "",
+                                    "markdown": "",
+                                    "html": "",
+                                    "version": 0,
+                                    "url": "",
+                                    "create_at": "",
+                                    "update_at": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentItem"
+            }
+        },
+        "/v1/document/update/": {
+            "post": {
+                "description": "更新内容管理信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "更新内容管理信息",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "required": false,
+                        "type": "integer",
+                        "description": "id"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "名称"
+                    },
+                    {
+                        "name": "markdown",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "markdown内容"
+                    },
+                    {
+                        "name": "html",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "html内容"
+                    },
+                    {
+                        "name": "version",
+                        "in": "formData",
+                        "required": false,
+                        "type": "integer",
+                        "description": "版本"
+                    },
+                    {
+                        "name": "url",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "url"
+                    },
+                    {
+                        "name": "create_at",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "创建时间"
+                    },
+                    {
+                        "name": "update_at",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "description": "更新时间"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "文章-内容管理",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentItem"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {
+                                    "id": 0,
+                                    "name": "",
+                                    "markdown": "",
+                                    "html": "",
+                                    "version": 0,
+                                    "url": "",
+                                    "create_at": "",
+                                    "update_at": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentItem"
+            }
+        },
+        "/v1/document/delete/": {
+            "delete": {
+                "description": "删除内容管理信息",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "删除内容管理信息",
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "description": "记录ID列表 最小值:1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "内容管理无数据返回",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentNoneRsp"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {}
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentDeleteReq"
+            }
+        },
+        "/web/document/article/": {
+            "get": {
+                "description": "获取文章详情",
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ],
+                "tags": [],
+                "summary": "获取文章详情",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "description": "文章ID 最小值:1"
+                    },
+                    {
+                        "name": "single",
+                        "in": "query",
+                        "required": false,
+                        "type": "boolean",
+                        "description": "是否单页"
+                    },
+                    {
+                        "name": "html",
+                        "in": "query",
+                        "required": false,
+                        "type": "boolean",
+                        "description": "是否直接返回HTML内容"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "获取文章详情返回参数",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "number",
+                                    "description": "返回状态码"
+                                },
+                                "data": {
+                                    "description": "成功时返回数据",
+                                    "$ref": "#/definitions/AdminCore.DocumentArticleRspMsg"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "失败时的提示消息"
+                                }
+                            },
+                            "required": [
+                                "result"
+                            ]
+                        },
+                        "examples": {
+                            "application/json": {
+                                "result": 0,
+                                "data": {}
+                            }
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "pref": "#/definitions/AdminCore.DocumentArticleReqMsg"
+            }
         }
     },
     "definitions": {
@@ -5299,14 +5907,12 @@
                 },
                 "roles": {
                     "type": "array",
-                    "description": "用户角色编码集合",
                     "items": {
                         "type": "string"
                     }
                 },
                 "perms": {
                     "type": "array",
-                    "description": "用户权限标识集合",
                     "items": {
                         "type": "string"
                     }
@@ -5316,9 +5922,7 @@
                 "userId",
                 "username",
                 "nickname",
-                "avatar",
-                "roles",
-                "perms"
+                "avatar"
             ]
         },
         "AdminCore.V1UsersPageReq": {
@@ -5353,35 +5957,7 @@
                     "description": "结束时间-年月日"
                 }
             },
-            "required": [
-                "keywords",
-                "status",
-                "deptId",
-                "pageNum",
-                "pageSize",
-                "startTime",
-                "endTime"
-            ]
-        },
-        "AdminCore.V1UsersPageRsp": {
-            "type": "object",
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "总数"
-                },
-                "list": {
-                    "type": "array",
-                    "description": "用户列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1UserPageItem"
-                    }
-                }
-            },
-            "required": [
-                "total",
-                "list"
-            ]
+            "required": []
         },
         "AdminCore.V1UserPageItem": {
             "type": "object",
@@ -5445,6 +6021,24 @@
                 "createTime"
             ]
         },
+        "AdminCore.V1UsersPageRsp": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "总数"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1UserPageItem"
+                    }
+                }
+            },
+            "required": [
+                "total"
+            ]
+        },
         "AdminCore.V1UsersAddReq": {
             "type": "object",
             "properties": {
@@ -5490,24 +6084,14 @@
                 },
                 "roleIds": {
                     "type": "array",
-                    "description": "角色ID集合",
                     "items": {
                         "type": "integer"
                     }
                 }
             },
             "required": [
-                "id",
                 "username",
-                "nickname",
-                "password",
-                "mobile",
-                "gender",
-                "avatar",
-                "email",
-                "status",
-                "deptId",
-                "roleIds"
+                "nickname"
             ]
         },
         "AdminCore.V1UserFormReq": {
@@ -5563,7 +6147,6 @@
                 },
                 "roleIds": {
                     "type": "array",
-                    "description": "角色ID集合",
                     "items": {
                         "type": "integer"
                     }
@@ -5574,12 +6157,10 @@
                 "username",
                 "nickname",
                 "mobile",
-                "gender",
                 "avatar",
                 "email",
                 "status",
-                "deptId",
-                "roleIds"
+                "deptId"
             ]
         },
         "AdminCore.V1UserUpdateReq": {
@@ -5623,7 +6204,6 @@
                 },
                 "roleIds": {
                     "type": "array",
-                    "description": "角色ID集合",
                     "items": {
                         "type": "integer"
                     }
@@ -5635,11 +6215,8 @@
                 "nickname",
                 "mobile",
                 "gender",
-                "avatar",
-                "email",
                 "status",
-                "deptId",
-                "roleIds"
+                "deptId"
             ]
         },
         "AdminCore.V1UsersDeleteReq": {
@@ -5704,31 +6281,7 @@
                     "description": "每页数量"
                 }
             },
-            "required": [
-                "keywords",
-                "pageNum",
-                "pageSize"
-            ]
-        },
-        "AdminCore.V1RolesPageRsp": {
-            "type": "object",
-            "properties": {
-                "list": {
-                    "type": "array",
-                    "description": "数据项",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1RolesItem"
-                    }
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总数"
-                }
-            },
-            "required": [
-                "list",
-                "total"
-            ]
+            "required": []
         },
         "AdminCore.V1RolesItem": {
             "type": "object",
@@ -5772,19 +6325,22 @@
                 "updateTime"
             ]
         },
-        "AdminCore.V1RolesOptiosRsp": {
+        "AdminCore.V1RolesPageRsp": {
             "type": "object",
             "properties": {
-                "items": {
+                "list": {
                     "type": "array",
-                    "description": "角色下拉列表项",
                     "items": {
-                        "$ref": "#/definitions/AdminCore.LongOptionItem"
+                        "$ref": "#/definitions/AdminCore.V1RolesItem"
                     }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总数"
                 }
             },
             "required": [
-                "items"
+                "total"
             ]
         },
         "AdminCore.LongOptionItem": {
@@ -5803,6 +6359,18 @@
                 "value",
                 "label"
             ]
+        },
+        "AdminCore.V1RolesOptiosRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.LongOptionItem"
+                    }
+                }
+            },
+            "required": []
         },
         "AdminCore.V1RolesAddReq": {
             "type": "object",
@@ -5833,12 +6401,9 @@
                 }
             },
             "required": [
-                "id",
                 "name",
                 "code",
-                "status",
-                "sort",
-                "dataScope"
+                "status"
             ]
         },
         "AdminCore.V1RolesFormReq": {
@@ -5882,12 +6447,9 @@
                 }
             },
             "required": [
-                "id",
                 "name",
                 "code",
-                "status",
-                "sort",
-                "dataScope"
+                "status"
             ]
         },
         "AdminCore.V1RolesUpdateReq": {
@@ -5922,9 +6484,7 @@
                 "id",
                 "name",
                 "code",
-                "status",
-                "sort",
-                "dataScope"
+                "status"
             ]
         },
         "AdminCore.V1RolesDeleteReq": {
@@ -5956,15 +6516,12 @@
             "properties": {
                 "items": {
                     "type": "array",
-                    "description": "菜单ID集合",
                     "items": {
                         "type": "integer"
                     }
                 }
             },
-            "required": [
-                "items"
-            ]
+            "required": []
         },
         "AdminCore.V1RolesMenusReq": {
             "type": "object",
@@ -5975,15 +6532,13 @@
                 },
                 "menuIds": {
                     "type": "array",
-                    "description": "菜单ID集合",
                     "items": {
                         "type": "integer"
                     }
                 }
             },
             "required": [
-                "roleId",
-                "menuIds"
+                "roleId"
             ]
         },
         "AdminCore.V1RolesStatusReq": {
@@ -6019,26 +6574,7 @@
                     "description": "菜单类型, 忽略本参数 取值范围及含义: 1 - MENU; 2 - CATALOG; 3 - EXTLINK; 4 - BUTTON;"
                 }
             },
-            "required": [
-                "keywords",
-                "status",
-                "type"
-            ]
-        },
-        "AdminCore.V1MenusListRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "菜单列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.MenuItem"
-                    }
-                }
-            },
-            "required": [
-                "items"
-            ]
+            "required": []
         },
         "AdminCore.MenuItem": {
             "type": "object",
@@ -6093,7 +6629,6 @@
                 },
                 "children": {
                     "type": "array",
-                    "description": "子菜单",
                     "items": {
                         "$ref": "#/definitions/AdminCore.MenuItem"
                     }
@@ -6101,19 +6636,20 @@
             },
             "required": [
                 "id",
-                "parentId",
-                "name",
-                "icon",
-                "path",
-                "routeName",
-                "component",
-                "sort",
-                "visible",
-                "redirect",
-                "type",
-                "perm",
-                "children"
+                "name"
             ]
+        },
+        "AdminCore.V1MenusListRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.MenuItem"
+                    }
+                }
+            },
+            "required": []
         },
         "AdminCore.V1MenusDeleteReq": {
             "type": "object",
@@ -6184,34 +6720,7 @@
                 }
             },
             "required": [
-                "id",
-                "parentId",
-                "name",
-                "type",
-                "path",
-                "component",
-                "perm",
-                "visible",
-                "sort",
-                "icon",
-                "redirect",
-                "keepAlive",
-                "alwaysShow"
-            ]
-        },
-        "AdminCore.V1MenusOptionsRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "菜单选项列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.MenuOptions"
-                    }
-                }
-            },
-            "required": [
-                "items"
+                "name"
             ]
         },
         "AdminCore.MenuOptions": {
@@ -6227,7 +6736,6 @@
                 },
                 "children": {
                     "type": "array",
-                    "description": "子菜单",
                     "items": {
                         "$ref": "#/definitions/AdminCore.MenuOptions"
                     }
@@ -6235,23 +6743,49 @@
             },
             "required": [
                 "value",
-                "label",
-                "children"
+                "label"
             ]
         },
-        "AdminCore.MenuRouteRsp": {
+        "AdminCore.V1MenusOptionsRsp": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
-                    "description": "路由列表",
                     "items": {
-                        "$ref": "#/definitions/AdminCore.MenuRouteItem"
+                        "$ref": "#/definitions/AdminCore.MenuOptions"
                     }
                 }
             },
+            "required": []
+        },
+        "AdminCore.MenuRouteMeta": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "路由title"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "路由icon"
+                },
+                "hiddle": {
+                    "type": "boolean",
+                    "description": "是否隐藏"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "keepAlive": {
+                    "type": "boolean",
+                    "description": "是否开启缓存"
+                }
+            },
             "required": [
-                "items"
+                "title"
             ]
         },
         "AdminCore.MenuRouteItem": {
@@ -6275,12 +6809,11 @@
                 },
                 "meta": {
                     "type": "object",
-                    "description": "路由元信息",
-                    "$ref": "#/definitions/AdminCore.MenuRouteMeta"
+                    "$ref": "#/definitions/AdminCore.MenuRouteMeta",
+                    "description": "路由元信息"
                 },
                 "children": {
                     "type": "array",
-                    "description": "子路由",
                     "items": {
                         "$ref": "#/definitions/AdminCore.MenuRouteItem"
                     }
@@ -6290,45 +6823,20 @@
                 "path",
                 "component",
                 "name",
-                "redirect",
-                "meta",
-                "children"
+                "meta"
             ]
         },
-        "AdminCore.MenuRouteMeta": {
+        "AdminCore.MenuRouteRsp": {
             "type": "object",
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "路由title"
-                },
-                "icon": {
-                    "type": "string",
-                    "description": "路由icon"
-                },
-                "hiddle": {
-                    "type": "boolean",
-                    "description": "是否隐藏"
-                },
-                "roles": {
+                "items": {
                     "type": "array",
-                    "description": "拥有路由权限的角色编码",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/definitions/AdminCore.MenuRouteItem"
                     }
-                },
-                "keepAlive": {
-                    "type": "boolean",
-                    "description": "是否开启缓存"
                 }
             },
-            "required": [
-                "title",
-                "icon",
-                "hiddle",
-                "roles",
-                "keepAlive"
-            ]
+            "required": []
         },
         "AdminCore.V1MenusFormReq": {
             "type": "object",
@@ -6399,19 +6907,7 @@
                 }
             },
             "required": [
-                "id",
-                "parentId",
-                "name",
-                "type",
-                "path",
-                "component",
-                "perm",
-                "visible",
-                "sort",
-                "icon",
-                "redirect",
-                "alwaysShow",
-                "keepAlive"
+                "name"
             ]
         },
         "AdminCore.V1MenusUpdateReq": {
@@ -6472,18 +6968,7 @@
             },
             "required": [
                 "id",
-                "parentId",
-                "name",
-                "type",
-                "path",
-                "component",
-                "perm",
-                "visible",
-                "sort",
-                "icon",
-                "redirect",
-                "alwaysShow",
-                "keepAlive"
+                "name"
             ]
         },
         "AdminCore.V1MenusStatusReq": {
@@ -6523,32 +7008,7 @@
                     "description": "每页记录数"
                 }
             },
-            "required": [
-                "keywords",
-                "type",
-                "pageNum",
-                "pageSize"
-            ]
-        },
-        "AdminCore.V1MenusPageRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "菜单列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1MenuTiny"
-                    }
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总记录数"
-                }
-            },
-            "required": [
-                "items",
-                "total"
-            ]
+            "required": []
         },
         "AdminCore.V1MenuTiny": {
             "type": "object",
@@ -6568,8 +7028,25 @@
             },
             "required": [
                 "id",
-                "name",
-                "perm"
+                "name"
+            ]
+        },
+        "AdminCore.V1MenusPageRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1MenuTiny"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
+            "required": [
+                "total"
             ]
         },
         "AdminCore.V1DeptListReq": {
@@ -6584,25 +7061,7 @@
                     "description": "状态 取值范围及含义: 1 - 启用; 0 - 停用;"
                 }
             },
-            "required": [
-                "keyword",
-                "status"
-            ]
-        },
-        "AdminCore.V1DeptListRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "部门列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1DeptItem"
-                    }
-                }
-            },
-            "required": [
-                "items"
-            ]
+            "required": []
         },
         "AdminCore.V1DeptItem": {
             "type": "object",
@@ -6637,7 +7096,6 @@
                 },
                 "children": {
                     "type": "array",
-                    "description": "子部门",
                     "items": {
                         "$ref": "#/definitions/AdminCore.V1DeptItem"
                     }
@@ -6645,14 +7103,20 @@
             },
             "required": [
                 "id",
-                "parentId",
-                "name",
-                "sort",
-                "status",
-                "createTime",
-                "updateTime",
-                "children"
+                "name"
             ]
+        },
+        "AdminCore.V1DeptListRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1DeptItem"
+                    }
+                }
+            },
+            "required": []
         },
         "AdminCore.V1DeptAddReq": {
             "type": "object",
@@ -6679,26 +7143,8 @@
                 }
             },
             "required": [
-                "id",
                 "parentId",
-                "name",
-                "sort",
-                "status"
-            ]
-        },
-        "AdminCore.V1DeptOptionsRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "部门列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.LongOptions"
-                    }
-                }
-            },
-            "required": [
-                "items"
+                "name"
             ]
         },
         "AdminCore.LongOptions": {
@@ -6714,7 +7160,6 @@
                 },
                 "children": {
                     "type": "array",
-                    "description": "子选项",
                     "items": {
                         "$ref": "#/definitions/AdminCore.LongOptions"
                     }
@@ -6722,9 +7167,20 @@
             },
             "required": [
                 "value",
-                "label",
-                "children"
+                "label"
             ]
+        },
+        "AdminCore.V1DeptOptionsRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.LongOptions"
+                    }
+                }
+            },
+            "required": []
         },
         "AdminCore.V1DeptUpdateReq": {
             "type": "object",
@@ -6753,9 +7209,7 @@
             "required": [
                 "id",
                 "parentId",
-                "name",
-                "sort",
-                "status"
+                "name"
             ]
         },
         "AdminCore.V1DeptFormReq": {
@@ -6797,9 +7251,7 @@
             "required": [
                 "id",
                 "parentId",
-                "name",
-                "sort",
-                "status"
+                "name"
             ]
         },
         "AdminCore.V1DeptDeleteReq": {
@@ -6834,32 +7286,7 @@
                     "description": "每页记录数"
                 }
             },
-            "required": [
-                "keywords",
-                "typeCode",
-                "pageNum",
-                "pageSize"
-            ]
-        },
-        "AdminCore.V1DictPageRsp": {
-            "type": "object",
-            "properties": {
-                "list": {
-                    "type": "array",
-                    "description": "列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1DictItem"
-                    }
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总记录数"
-                }
-            },
-            "required": [
-                "list",
-                "total"
-            ]
+            "required": []
         },
         "AdminCore.V1DictItem": {
             "type": "object",
@@ -6885,12 +7312,24 @@
                     "description": "状态 取值范围及含义: 1 - 启用; 0 - 停用;"
                 }
             },
+            "required": []
+        },
+        "AdminCore.V1DictPageRsp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1DictItem"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
             "required": [
-                "id",
-                "name",
-                "value",
-                "remark",
-                "status"
+                "total"
             ]
         },
         "AdminCore.V1DictOptionsReq": {
@@ -6903,21 +7342,6 @@
             },
             "required": [
                 "typeCode"
-            ]
-        },
-        "AdminCore.V1DictOptionsRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "选项列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.StringOptions"
-                    }
-                }
-            },
-            "required": [
-                "items"
             ]
         },
         "AdminCore.StringOptions": {
@@ -6933,7 +7357,6 @@
                 },
                 "children": {
                     "type": "array",
-                    "description": "子选项",
                     "items": {
                         "$ref": "#/definitions/AdminCore.StringOptions"
                     }
@@ -6941,9 +7364,20 @@
             },
             "required": [
                 "value",
-                "label",
-                "children"
+                "label"
             ]
+        },
+        "AdminCore.V1DictOptionsRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.StringOptions"
+                    }
+                }
+            },
+            "required": []
         },
         "AdminCore.V1DictFormReq": {
             "type": "object",
@@ -6990,13 +7424,7 @@
                 }
             },
             "required": [
-                "id",
-                "typeCode",
-                "name",
-                "value",
-                "status",
-                "sort",
-                "remark"
+                "typeCode"
             ]
         },
         "AdminCore.V1DictAddReq": {
@@ -7032,13 +7460,7 @@
                 }
             },
             "required": [
-                "id",
-                "typeCode",
-                "name",
-                "value",
-                "status",
-                "sort",
-                "remark"
+                "typeCode"
             ]
         },
         "AdminCore.V1DictUpdateReq": {
@@ -7074,13 +7496,7 @@
                 }
             },
             "required": [
-                "id",
-                "typeCode",
-                "name",
-                "value",
-                "status",
-                "sort",
-                "remark"
+                "id"
             ]
         },
         "AdminCore.V1DictDeleteReq": {
@@ -7111,31 +7527,7 @@
                     "description": "每页记录数"
                 }
             },
-            "required": [
-                "keywords",
-                "pageNum",
-                "pageSize"
-            ]
-        },
-        "AdminCore.V1DictTypesPageRsp": {
-            "type": "object",
-            "properties": {
-                "list": {
-                    "type": "array",
-                    "description": "列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1DictTypesItem"
-                    }
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总记录数"
-                }
-            },
-            "required": [
-                "list",
-                "total"
-            ]
+            "required": []
         },
         "AdminCore.V1DictTypesItem": {
             "type": "object",
@@ -7161,12 +7553,24 @@
                     "description": "状态 取值范围及含义: 1 - 启用; 0 - 停用;"
                 }
             },
+            "required": []
+        },
+        "AdminCore.V1DictTypesPageRsp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1DictTypesItem"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
             "required": [
-                "id",
-                "name",
-                "code",
-                "remark",
-                "status"
+                "total"
             ]
         },
         "AdminCore.V1DictTypesFormReq": {
@@ -7205,13 +7609,7 @@
                     "description": "备注"
                 }
             },
-            "required": [
-                "id",
-                "name",
-                "code",
-                "status",
-                "remark"
-            ]
+            "required": []
         },
         "AdminCore.V1DictTypesAddReq": {
             "type": "object",
@@ -7238,11 +7636,7 @@
                 }
             },
             "required": [
-                "id",
-                "name",
-                "code",
-                "status",
-                "remark"
+                "code"
             ]
         },
         "AdminCore.V1DictTypesUpdateReq": {
@@ -7271,10 +7665,7 @@
             },
             "required": [
                 "id",
-                "name",
-                "code",
-                "status",
-                "remark"
+                "code"
             ]
         },
         "AdminCore.V1DictTypesDeleteReq": {
@@ -7301,10 +7692,7 @@
                     "description": "文件URL"
                 }
             },
-            "required": [
-                "name",
-                "url"
-            ]
+            "required": []
         },
         "AdminCore.V1FilesDeleteReq": {
             "type": "object",
@@ -7352,29 +7740,7 @@
             },
             "required": [
                 "pageNum",
-                "pageSize",
-                "vendor",
-                "name"
-            ]
-        },
-        "AdminCore.V1FilePageRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "文件列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1FileItem"
-                    }
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总数"
-                }
-            },
-            "required": [
-                "items",
-                "total"
+                "pageSize"
             ]
         },
         "AdminCore.V1FileItem": {
@@ -7416,12 +7782,25 @@
             "required": [
                 "id",
                 "name",
-                "url",
-                "key",
-                "vendor",
-                "createTime",
-                "deleted",
-                "vendorName"
+                "url"
+            ]
+        },
+        "AdminCore.V1FilePageRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1FileItem"
+                    }
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总数"
+                }
+            },
+            "required": [
+                "total"
             ]
         },
         "AdminCore.V1FileFormReq": {
@@ -7476,10 +7855,6 @@
                 "id",
                 "name",
                 "url",
-                "key",
-                "vendor",
-                "deleted",
-                "vendorName",
                 "createTime"
             ]
         },
@@ -7500,21 +7875,6 @@
                 "name"
             ]
         },
-        "AdminCore.V1FilesZoneRsp": {
-            "type": "object",
-            "properties": {
-                "qiniu": {
-                    "type": "array",
-                    "description": "文件存储提供商列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.StringOptionItem"
-                    }
-                }
-            },
-            "required": [
-                "qiniu"
-            ]
-        },
         "AdminCore.StringOptionItem": {
             "type": "object",
             "properties": {
@@ -7532,26 +7892,17 @@
                 "label"
             ]
         },
-        "AdminCore.V1FilesVendorsRsp": {
+        "AdminCore.V1FilesZoneRsp": {
             "type": "object",
             "properties": {
-                "items": {
+                "qiniu": {
                     "type": "array",
-                    "description": "文件存储提供商列表",
                     "items": {
-                        "$ref": "#/definitions/AdminCore.StringOptions"
+                        "$ref": "#/definitions/AdminCore.StringOptionItem"
                     }
-                },
-                "current": {
-                    "type": "object",
-                    "description": "当前文件存储提供商",
-                    "$ref": "#/definitions/AdminCore.V1VendorItem"
                 }
             },
-            "required": [
-                "items",
-                "current"
-            ]
+            "required": []
         },
         "AdminCore.V1VendorItem": {
             "type": "object",
@@ -7585,14 +7936,25 @@
                     "description": "更新时间"
                 }
             },
+            "required": []
+        },
+        "AdminCore.V1FilesVendorsRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.StringOptions"
+                    }
+                },
+                "current": {
+                    "type": "object",
+                    "$ref": "#/definitions/AdminCore.V1VendorItem",
+                    "description": "当前文件存储提供商"
+                }
+            },
             "required": [
-                "id",
-                "vendor",
-                "name",
-                "key",
-                "value",
-                "remark",
-                "updateTime"
+                "current"
             ]
         },
         "AdminCore.V1VendorPageReq": {
@@ -7611,18 +7973,13 @@
                     "description": "每页记录数"
                 }
             },
-            "required": [
-                "vendor",
-                "pageNum",
-                "pageSize"
-            ]
+            "required": []
         },
         "AdminCore.V1VendorPageRsp": {
             "type": "object",
             "properties": {
                 "items": {
                     "type": "array",
-                    "description": "列表",
                     "items": {
                         "$ref": "#/definitions/AdminCore.V1VendorItem"
                     }
@@ -7633,7 +7990,6 @@
                 }
             },
             "required": [
-                "items",
                 "total"
             ]
         },
@@ -7654,20 +8010,18 @@
             "properties": {
                 "item": {
                     "type": "object",
-                    "description": "配置项",
-                    "$ref": "#/definitions/AdminCore.V1VendorItem"
+                    "$ref": "#/definitions/AdminCore.V1VendorItem",
+                    "description": "配置项"
                 },
                 "options": {
                     "type": "array",
-                    "description": "文件存储提供商列表",
                     "items": {
                         "$ref": "#/definitions/AdminCore.StringOptionItem"
                     }
                 }
             },
             "required": [
-                "item",
-                "options"
+                "item"
             ]
         },
         "AdminCore.V1VendorUpdateReq": {
@@ -7703,8 +8057,7 @@
                 "vendor",
                 "name",
                 "key",
-                "value",
-                "remark"
+                "value"
             ]
         },
         "AdminCore.V1ApiPageReq": {
@@ -7723,36 +8076,7 @@
                     "description": "每页记录数"
                 }
             },
-            "required": [
-                "keyword",
-                "pageNum",
-                "pageSize"
-            ]
-        },
-        "AdminCore.V1ApiPageRsp": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "description": "列表",
-                    "items": {
-                        "$ref": "#/definitions/AdminCore.V1ApiItem"
-                    }
-                },
-                "button": {
-                    "type": "integer",
-                    "description": "按钮类型"
-                },
-                "total": {
-                    "type": "integer",
-                    "description": "总记录数"
-                }
-            },
-            "required": [
-                "items",
-                "button",
-                "total"
-            ]
+            "required": []
         },
         "AdminCore.V1ApiItem": {
             "type": "object",
@@ -7775,7 +8099,6 @@
                 },
                 "menus": {
                     "type": "array",
-                    "description": "API 菜单列表",
                     "items": {
                         "type": "string"
                     }
@@ -7790,13 +8113,32 @@
                 }
             },
             "required": [
-                "id",
                 "method",
                 "name",
-                "path",
-                "menus",
-                "remark",
-                "updateTime"
+                "path"
+            ]
+        },
+        "AdminCore.V1ApiPageRsp": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.V1ApiItem"
+                    }
+                },
+                "button": {
+                    "type": "integer",
+                    "description": "按钮类型"
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "总记录数"
+                }
+            },
+            "required": [
+                "button",
+                "total"
             ]
         },
         "AdminCore.V1ApiFormReq": {
@@ -7832,7 +8174,6 @@
                 },
                 "menus": {
                     "type": "array",
-                    "description": "API 菜单列表",
                     "items": {
                         "$ref": "#/definitions/AdminCore.V1MenuTiny"
                     }
@@ -7843,7 +8184,6 @@
                 },
                 "methods": {
                     "type": "array",
-                    "description": "方法列表",
                     "items": {
                         "type": "string"
                     }
@@ -7854,9 +8194,7 @@
                 "method",
                 "name",
                 "path",
-                "menus",
-                "remark",
-                "methods"
+                "remark"
             ]
         },
         "AdminCore.V1ApiUpdateReq": {
@@ -7880,7 +8218,6 @@
                 },
                 "menus": {
                     "type": "array",
-                    "description": "权限菜单按钮ID列表",
                     "items": {
                         "type": "integer"
                     }
@@ -7894,10 +8231,164 @@
                 "id",
                 "method",
                 "name",
-                "path",
-                "menus",
-                "remark"
+                "path"
             ]
+        },
+        "AdminCore.DocumentPageReq": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "description": "页码 最小值:1"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "每页数量 数值范围:1-200"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "名称"
+                }
+            },
+            "required": [
+                "page",
+                "size"
+            ]
+        },
+        "AdminCore.DocumentItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "名称"
+                },
+                "markdown": {
+                    "type": "string",
+                    "description": "markdown内容"
+                },
+                "html": {
+                    "type": "string",
+                    "description": "html内容"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "版本"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "url"
+                },
+                "create_at": {
+                    "type": "string",
+                    "description": "创建时间"
+                },
+                "update_at": {
+                    "type": "string",
+                    "description": "更新时间"
+                }
+            },
+            "required": [
+                "markdown",
+                "html"
+            ]
+        },
+        "AdminCore.DocumentPageRsp": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "总数"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AdminCore.DocumentItem"
+                    }
+                }
+            },
+            "required": [
+                "total"
+            ]
+        },
+        "AdminCore.DocumentDragePageReq": {
+            "type": "object",
+            "properties": {
+                "doc_id": {
+                    "type": "integer",
+                    "description": "文章ID 最小值:1"
+                },
+                "page": {
+                    "type": "integer",
+                    "description": "页码 最小值:1"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "每页数量 数值范围:1-50"
+                }
+            },
+            "required": [
+                "doc_id",
+                "page",
+                "size"
+            ]
+        },
+        "AdminCore.DocumentFormReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "记录ID 最小值:1"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        },
+        "AdminCore.DocumentDeleteReq": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": []
+        },
+        "AdminCore.DocumentNoneRsp": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        },
+        "AdminCore.DocumentArticleReqMsg": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "文章ID 最小值:1"
+                },
+                "single": {
+                    "type": "boolean",
+                    "description": "是否单页"
+                },
+                "html": {
+                    "type": "boolean",
+                    "description": "是否直接返回HTML内容"
+                }
+            },
+            "required": [
+                "id"
+            ]
+        },
+        "AdminCore.DocumentArticleRspMsg": {
+            "type": "object",
+            "properties": {},
+            "required": []
         }
     },
     "securityDefinitions": {

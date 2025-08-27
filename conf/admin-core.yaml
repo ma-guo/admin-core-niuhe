@@ -6,6 +6,7 @@ db:
   sync: true
   main: root:dequankim@tcp(localhost:3306)/admincore?charset=utf8mb4
 
-host: http://localhost:9999
+host: http://localhost:19999
 fileprefix: admin
 secretkey: admincore-secret-key
+templates: ../../templates
