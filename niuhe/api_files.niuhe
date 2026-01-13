@@ -2,35 +2,37 @@ include('comm.niuhe')
 
 class QiniuZoneEnum(ConstGroup):
     '''七牛存储区域'''
-    Huadong = Item('ZoneHuadong', '华东机房')
-    Huabei = Item('ZoneHuabei', '华北机房')
-    Huanan = Item('ZoneHuanan', '华南机房')
-    Beimei = Item('ZoneBeimei', '北美机房')
-    Xinjiapo = Item('ZoneXinjiapo', '新加坡机房')
+    Huadong   = Item('ZoneHuadong', '华东机房')
+    Huabei    = Item('ZoneHuabei', '华北机房')
+    Huanan    = Item('ZoneHuanan', '华南机房')
+    Beimei    = Item('ZoneBeimei', '北美机房')
+    Xinjiapo  = Item('ZoneXinjiapo', '新加坡机房')
     ZheJiang2 = Item('ZoneHuadongZheJiang2', '华东浙江 2 区')
 
 class FileVendorEnum(ConstGroup):
     '''文件存储提供商'''
-    Local = Item('local', '本机存储')
-    Qiniu = Item('qiniu', '七牛存储')
-    Aliyun = Item('aliyun', '阿里云存储')
+    Local   = Item('local', '本机存储')
+    Qiniu   = Item('qiniu', '七牛存储')
+    Aliyun  = Item('aliyun', '阿里云存储')
     Tencent = Item('tencent', '腾讯云存储')
 
 class V1FileItem():
     '''文件结构信息'''
-    id = required.Long(desc='文件ID')
-    name = required.String(desc='文件名')
-    url = required.String(desc='文件URL')
-    key = optional.String(desc='文件key')
-    vendor = optional.StringEnum(desc='菜单类型', group=FileVendorEnum)
+    id         = required.Long(desc='文件ID')
+    name       = required.String(desc='文件名')
+    url        = required.String(desc='文件URL')
+    key        = optional.String(desc='文件key')
+    vendor     = optional.StringEnum(desc='菜单类型', group=FileVendorEnum)
     createTime = optional.String(desc='创建时间')
-    deleted = optional.Boolean(desc='是否删除')
+    deleted    = optional.Boolean(desc='是否删除')
     vendorName = optional.String(desc='文件存储提供商')
 
 class V1FilesUploadRsp():
     '''文件上传请求'''
-    name = optional.String(desc='文件名')
-    url = optional.String(desc='文件URL')
+    name       = optional.String(desc='文件名')
+    url        = optional.String(desc='文件URL')
+    signed_url = optional.String(desc='签名后的URL')
+    
 class V1FilesDeleteReq():
     '''文件删除请求'''
     filePath = required.String(desc='文件路径')
@@ -40,10 +42,10 @@ class V1FileFetchReq():
 
 class V1FilePageReq():
     '''文件分页请求'''
-    pageNum = required.Integer(desc='页码')
+    pageNum  = required.Integer(desc='页码')
     pageSize = required.Integer(desc='每页数量')
-    vendor = optional.String(desc='文件存储提供商')
-    name = optional.String(desc='文件名')
+    vendor   = optional.String(desc='文件存储提供商')
+    name     = optional.String(desc='文件名')
 
 class V1FilePageRsp():
     items = repeated.Message(desc='文件列表', cls=V1FileItem)
@@ -58,7 +60,7 @@ class V1FileFromRsp(V1FileItem):
     createTime = required.String(desc='创建时间')
 
 class V1FileUpdateReq():
-    id = required.Long(desc='文件ID')
+    id   = required.Long(desc='文件ID')
     name = required.String(desc='文件名')
 
 with services():

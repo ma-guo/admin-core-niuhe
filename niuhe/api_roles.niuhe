@@ -3,21 +3,21 @@ include('comm.niuhe')
 class V1RolesPageReq():
     '''角色分页列表'''
     keywords = optional.String(desc='搜索关键字')
-    pageNum = optional.Integer(desc='页码')
+    pageNum  = optional.Integer(desc='页码')
     pageSize = optional.Integer(desc='每页数量')
 
 class V1RolesItem():
     '''角色列表项'''
-    id = required.Long(desc='角色ID')
-    name = required.String(desc='角色名称')
-    code = required.String(desc='角色编码')
-    status = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
-    sort = required.Integer(desc='排序')
+    id         = required.Long(desc='角色ID')
+    name       = required.String(desc='角色名称')
+    code       = required.String(desc='角色编码')
+    status     = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
+    sort       = required.Integer(desc='排序')
     createTime = required.String(desc='创建时间')
     updateTime = required.String(desc='更新时间')
 
 class V1RolesPageRsp():
-    list = repeated.Message(cls=V1RolesItem, desc='数据项')
+    list  = repeated.Message(cls=V1RolesItem, desc='数据项')
     total = required.Long(desc='总数')
 
 class V1RolesOptiosRsp():
@@ -25,11 +25,11 @@ class V1RolesOptiosRsp():
 
 class V1RolesAddReq():
     '''角色新增'''
-    id = optional.Long(desc='角色ID')
-    name = required.String(desc='角色名称')
-    code = required.String(desc='角色编码')
-    status = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
-    sort = optional.Integer(desc='排序')
+    id        = optional.Long(desc='角色ID')
+    name      = required.String(desc='角色名称')
+    code      = required.String(desc='角色编码')
+    status    = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
+    sort      = optional.Integer(desc='排序')
     dataScope = optional.Enum(desc='数据权限', group=comm.DataScopeEnum)
 
 class V1RolesFormReq():
@@ -38,20 +38,20 @@ class V1RolesFormReq():
 
 class V1RolesFormRsp():
     '''角色表单数据'''
-    id = optional.Long(desc='角色ID')
-    name = required.String(desc='角色名称')
-    code = required.String(desc='角色编码')
-    status = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
-    sort = optional.Integer(desc='排序')
+    id        = optional.Long(desc='角色ID')
+    name      = required.String(desc='角色名称')
+    code      = required.String(desc='角色编码')
+    status    = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
+    sort      = optional.Integer(desc='排序')
     dataScope = optional.Enum(desc='数据权限', group=comm.DataScopeEnum)
 
 class V1RolesUpdateReq():
     '''角色表单数据'''
-    id = required.Long(desc='角色ID')
-    name = required.String(desc='角色名称')
-    code = required.String(desc='角色编码')
-    status = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
-    sort = optional.Integer(desc='排序')
+    id        = required.Long(desc='角色ID')
+    name      = required.String(desc='角色名称')
+    code      = required.String(desc='角色编码')
+    status    = required.Enum(desc='角色状态', group=comm.CommStatusEnum)
+    sort      = optional.Integer(desc='排序')
     dataScope = optional.Enum(desc='数据权限', group=comm.DataScopeEnum)
 
 class V1RolesDeleteReq():
@@ -67,7 +67,7 @@ class V1RolesMenuIdsRsp():
 
 class V1RolesMenusReq():
     '''给角色分配权限'''
-    roleId = required.Long(desc='角色ID')
+    roleId  = required.Long(desc='角色ID')
     menuIds = repeated.Long(desc='菜单ID集合')
 
 class V1RolesStatusReq():

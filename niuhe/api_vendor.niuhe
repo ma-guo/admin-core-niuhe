@@ -1,12 +1,12 @@
 include('comm.niuhe')
 
 class V1VendorItem():
-    id = optional.Long(desc="主键")
-    vendor = optional.String(desc="文件存储提供商")
-    name = optional.String(desc="配置名")
-    key = optional.String(desc="配置键")
-    value = optional.String(desc="配置值")
-    remark = optional.String(desc="备注")
+    id         = optional.Long(desc="主键")
+    vendor     = optional.String(desc="文件存储提供商")
+    name       = optional.String(desc="配置名")
+    key        = optional.String(desc="配置键")
+    value      = optional.String(desc="配置值")
+    remark     = optional.String(desc="备注")
     updateTime = optional.String(desc='更新时间')
 
 
@@ -16,12 +16,12 @@ class V1FilesZoneRsp():
 
 class V1FilesVendorsRsp():
     '''获取文件存储提供商列表返回'''
-    items = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptions)
+    items   = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptions)
     current = required.Message(desc='当前文件存储提供商', cls=V1VendorItem)
 
 class V1VendorPageReq():
-    vendor = optional.String(desc="文件存储提供商")
-    pageNum = optional.Integer(desc="页码")
+    vendor   = optional.String(desc="文件存储提供商")
+    pageNum  = optional.Integer(desc="页码")
     pageSize = optional.Integer(desc="每页记录数")
 
 
@@ -34,15 +34,15 @@ class V1VendorFormReq():
     id = required.Long(desc="配置 id")
 
 class V1VendorFormRsp():
-    item = required.Message(cls=V1VendorItem, desc="配置项")
+    item    = required.Message(cls=V1VendorItem, desc="配置项")
     options = repeated.Message(desc='文件存储提供商列表', cls=comm.StringOptionItem)
 
 class V1VendorUpdateReq():
-    id = required.Long(desc="主键")
+    id     = required.Long(desc="主键")
     vendor = required.String(desc="文件存储提供商")
-    name = required.String(desc="配置名")
-    key = required.String(desc="配置键")
-    value = required.String(desc="配置值")
+    name   = required.String(desc="配置名")
+    key    = required.String(desc="配置键")
+    value  = required.String(desc="配置值")
     remark = optional.String(desc="备注")
 
 

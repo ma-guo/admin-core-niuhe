@@ -2,45 +2,45 @@ include('comm.niuuhe')
 
 class MenuStatusEnum(ConstGroup):
     '''菜单状态枚举'''
-    Visible = Item(1, '显示')
+    Visible   = Item(1, '显示')
     InVisible = Item(0, '隐藏')
 
 class MenuTypeEnum(ConstGroup):
     '''菜单状态枚举'''
-    NULL = Item('NULL', '无类型')
+    NULL    = Item('NULL', '无类型')
     CATALOG = Item('CATALOG', '目录')
-    MENU = Item('MENU', '菜单')
-    BUTTON = Item('BUTTON', '按钮')
+    MENU    = Item('MENU', '菜单')
+    BUTTON  = Item('BUTTON', '按钮')
     EXTLINK = Item('EXTLINK', '外链')
 
 class MenuTypeGroup(ConstGroup):
     '''菜单类型组'''
-    MENU = Item(1, 'MENU')
+    MENU    = Item(1, 'MENU')
     CATALOG = Item(2, 'CATALOG')
     EXTLINK = Item(3, 'EXTLINK')
-    BUTTON = Item(4, 'BUTTON')
+    BUTTON  = Item(4, 'BUTTON')
 
 class MenuItem():
     '''菜单视图对象'''
-    id = required.Long(desc='菜单ID')
-    parentId = optional.Long(desc='父菜单ID')
-    name = required.String(desc='菜单名称')
-    icon = optional.String(desc='ICON')
-    path = optional.String(desc='路由相对路径')
+    id        = required.Long(desc='菜单ID')
+    parentId  = optional.Long(desc='父菜单ID')
+    name      = required.String(desc='菜单名称')
+    icon      = optional.String(desc='ICON')
+    path      = optional.String(desc='路由相对路径')
     routeName = optional.String(desc='路由名称')
     component = optional.String(desc='组件路径')
-    sort = optional.Integer(desc='菜单排序(数字越小排名越靠前)')
-    visible = optional.Enum(desc='是否可见', group=MenuStatusEnum)
-    redirect = optional.String(desc='跳转路径')
-    type = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
-    perm = optional.String(desc='按钮权限标识')
-    children = repeated.Message(cls=MenuItem, desc='子菜单')
+    sort      = optional.Integer(desc='菜单排序(数字越小排名越靠前)')
+    visible   = optional.Enum(desc='是否可见', group=MenuStatusEnum)
+    redirect  = optional.String(desc='跳转路径')
+    type      = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
+    perm      = optional.String(desc='按钮权限标识')
+    children  = repeated.Message(cls=MenuItem, desc='子菜单')
 
 class V1MenusListReq():
     '''菜单列表请求'''
     keywords = optional.String(desc='关键字')
-    status = optional.Enum(desc='状态', group=MenuStatusEnum)
-    type = optional.Enum(desc='菜单类型, 忽略本参数', group=MenuTypeGroup)
+    status   = optional.Enum(desc='状态', group=MenuStatusEnum)
+    type     = optional.Enum(desc='菜单类型, 忽略本参数', group=MenuTypeGroup)
 
 class V1MenusListRsp():
     '''菜单列表响应'''
@@ -52,23 +52,23 @@ class V1MenusDeleteReq():
 
 class V1MenusAddReq():
     '''菜单表单对象'''
-    id = optional.Long(desc='菜单ID')
-    parentId = optional.Long(desc='父菜单ID')
-    name = required.String(desc='菜单名称')
-    type = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
-    path = optional.String(desc='路由路径')
-    component = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
-    perm = optional.String(desc='权限标识')
-    visible = optional.Enum(desc='显示状态', group=MenuStatusEnum)
-    sort = optional.Integer(desc='排序(数字越小排名越靠前)')
-    icon = optional.String(desc='菜单图标')
-    redirect = optional.String(desc='跳转路径')
-    keepAlive = optional.Integer(desc='是否开启缓存')
+    id         = optional.Long(desc='菜单ID')
+    parentId   = optional.Long(desc='父菜单ID')
+    name       = required.String(desc='菜单名称')
+    type       = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
+    path       = optional.String(desc='路由路径')
+    component  = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
+    perm       = optional.String(desc='权限标识')
+    visible    = optional.Enum(desc='显示状态', group=MenuStatusEnum)
+    sort       = optional.Integer(desc='排序(数字越小排名越靠前)')
+    icon       = optional.String(desc='菜单图标')
+    redirect   = optional.String(desc='跳转路径')
+    keepAlive  = optional.Integer(desc='是否开启缓存')
     alwaysShow = optional.Integer(desc='是否总是显示')
 
 class MenuOptions():
-    value = required.Long(desc='菜单ID')
-    label = required.String(desc='菜单名称')
+    value    = required.Long(desc='菜单ID')
+    label    = required.String(desc='菜单名称')
     children = repeated.Message(cls=MenuOptions, desc='子菜单')
 
 class V1MenusOptionsRsp():
@@ -76,20 +76,20 @@ class V1MenusOptionsRsp():
     items = repeated.Message(cls=MenuOptions, desc='菜单选项列表')
 
 class MenuRouteMeta():
-    title = required.String(desc='路由title')
-    icon = optional.String(desc='路由icon')
-    hiddle = optional.Boolean(desc='是否隐藏')
-    roles = repeated.String(desc='拥有路由权限的角色编码')
+    title     = required.String(desc='路由title')
+    icon      = optional.String(desc='路由icon')
+    hiddle    = optional.Boolean(desc='是否隐藏')
+    roles     = repeated.String(desc='拥有路由权限的角色编码')
     keepAlive = optional.Boolean(desc='是否开启缓存')
 
 class MenuRouteItem():
     '''路由属性类型'''
-    path = required.String(desc='路由路径')
+    path      = required.String(desc='路由路径')
     component = required.String(desc='组件路径')
-    name = required.String(desc='路由名称')
-    redirect = optional.String(desc='跳转链接')
-    meta = required.Message(cls=MenuRouteMeta, desc='路由元信息')
-    children = repeated.Message(cls=MenuRouteItem, desc='子路由')
+    name      = required.String(desc='路由名称')
+    redirect  = optional.String(desc='跳转链接')
+    meta      = required.Message(cls=MenuRouteMeta, desc='路由元信息')
+    children  = repeated.Message(cls=MenuRouteItem, desc='子路由')
 
 class MenuRouteRsp():
     items = repeated.Message(cls=MenuRouteItem, desc='路由列表')
@@ -100,46 +100,46 @@ class V1MenusFormReq():
 
 class V1MenusFormRsp():
     '''菜单表单数据'''
-    id = optional.Long(desc='菜单ID')
-    parentId = optional.Long(desc='父菜单ID')
-    name = required.String(desc='菜单名称')
-    type = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
-    path = optional.String(desc='路由路径')
-    component = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
-    perm = optional.String(desc='权限标识')
-    visible = optional.Enum(desc='显示状态', group=MenuStatusEnum)
-    sort = optional.Integer(desc='排序(数字越小排名越靠前)')
-    icon = optional.String(desc='菜单图标')
-    redirect = optional.String(desc='跳转路径')
+    id         = optional.Long(desc='菜单ID')
+    parentId   = optional.Long(desc='父菜单ID')
+    name       = required.String(desc='菜单名称')
+    type       = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
+    path       = optional.String(desc='路由路径')
+    component  = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
+    perm       = optional.String(desc='权限标识')
+    visible    = optional.Enum(desc='显示状态', group=MenuStatusEnum)
+    sort       = optional.Integer(desc='排序(数字越小排名越靠前)')
+    icon       = optional.String(desc='菜单图标')
+    redirect   = optional.String(desc='跳转路径')
     alwaysShow = optional.Integer(desc='是否总是显示')
-    keepAlive = optional.Integer(desc='是否开启缓存')
+    keepAlive  = optional.Integer(desc='是否开启缓存')
 
 class V1MenusUpdateReq():
     '''修改菜单请求参数'''
-    id = required.Long(desc='菜单ID')
-    parentId = optional.Long(desc='父菜单ID')
-    name = required.String(desc='菜单名称')
-    type = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
-    path = optional.String(desc='路由路径')
-    component = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
-    perm = optional.String(desc='权限标识')
-    visible = optional.Enum(desc='显示状态', group=MenuStatusEnum)
-    sort = optional.Integer(desc='排序(数字越小排名越靠前)')
-    icon = optional.String(desc='菜单图标')
-    redirect = optional.String(desc='跳转路径')
+    id         = required.Long(desc='菜单ID')
+    parentId   = optional.Long(desc='父菜单ID')
+    name       = required.String(desc='菜单名称')
+    type       = optional.StringEnum(desc='菜单类型', group=MenuTypeEnum)
+    path       = optional.String(desc='路由路径')
+    component  = optional.String(desc='组件路径(vue页面完整路径，省略.vue后缀)')
+    perm       = optional.String(desc='权限标识')
+    visible    = optional.Enum(desc='显示状态', group=MenuStatusEnum)
+    sort       = optional.Integer(desc='排序(数字越小排名越靠前)')
+    icon       = optional.String(desc='菜单图标')
+    redirect   = optional.String(desc='跳转路径')
     alwaysShow = optional.Integer(desc='是否总是显示')
-    keepAlive = optional.Integer(desc='是否开启缓存')
+    keepAlive  = optional.Integer(desc='是否开启缓存')
 
 class V1MenusStatusReq():
     '''修改菜单状态请求参数'''
-    id = required.Long(desc='菜单ID')
+    id      = required.Long(desc='菜单ID')
     visible = required.Enum(desc='菜单状态', group=MenuStatusEnum)
 
 class V1MenusPageReq():
     '''菜单列表请求'''
     keywords = optional.String(desc='关键字')
-    type = optional.Enum(desc='菜单类型, 忽略本参数', group=MenuTypeGroup)
-    pageNum = optional.Integer(desc='页码')
+    type     = optional.Enum(desc='菜单类型, 忽略本参数', group=MenuTypeGroup)
+    pageNum  = optional.Integer(desc='页码')
     pageSize = optional.Integer(desc='每页记录数')
 
 class V1MenusPageRsp():

@@ -3,35 +3,35 @@ include('comm.niuhe')
 
 class V1DictTypesPageReq():
     keywords = optional.String(desc="关键字(类型名称/类型编码)")
-    pageNum = optional.Integer(desc="页码")
+    pageNum  = optional.Integer(desc="页码")
     pageSize = optional.Integer(desc="每页记录数")
 
 
 class V1DictTypesPageRsp():
-    list = repeated.Message(cls=comm.V1DictTypesItem, desc="列表")
+    list  = repeated.Message(cls=comm.V1DictTypesItem, desc="列表")
     total = required.Long(desc="总记录数")
 
 class V1DictTypesFormReq():
     id = required.Long(desc="主键")
 
 class V1DictTypesFormRsp():
-    id = optional.Long(desc="主键")
-    name = optional.String(desc="类型名称")
-    code = optional.String(desc="类型编码")
+    id     = optional.Long(desc="主键")
+    name   = optional.String(desc="类型名称")
+    code   = optional.String(desc="类型编码")
     status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
     remark = optional.String(desc="备注")
 
 class V1DictTypesAddReq():
-    id = optional.Long(desc="主键")
-    name = optional.String(desc="类型名称")
-    code = required.String(desc="类型编码-必填")
+    id     = optional.Long(desc="主键")
+    name   = optional.String(desc="类型名称")
+    code   = required.String(desc="类型编码-必填")
     status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
     remark = optional.String(desc="备注")
 
 class V1DictTypesUpdateReq():
-    id = required.Long(desc="主键")
-    name = optional.String(desc="类型名称")
-    code = required.String(desc="类型编码")
+    id     = required.Long(desc="主键")
+    name   = optional.String(desc="类型名称")
+    code   = required.String(desc="类型编码")
     status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
     remark = optional.String(desc="备注")
 

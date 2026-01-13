@@ -2,24 +2,24 @@ include('comm.niuhe')
 
 class AuthLoginReq():
     '''登录请求参数'''
-    username = required.String(desc='用户名')
-    password = required.String(desc='密码')
-    captchaKey = required.String(desc='验证码key')
+    username    = required.String(desc='用户名')
+    password    = required.String(desc='密码')
+    captchaKey  = required.String(desc='验证码key')
     captchaCode = required.String(desc='验证码')
 
 class AauthLoginRsp():
     '''登录返回参数'''
-    accessToken = required.String(desc='访问token')
-    tokenType  = required.String(desc='token 类型, 固定为 Bearer')
+    accessToken  = required.String(desc='访问token')
+    tokenType    = required.String(desc='token 类型, 固定为 Bearer')
     refreshToken = required.String(desc='刷新token')
-    expiresIn = required.Long(desc='token 过期时间, 单位毫秒')
+    expiresIn    = required.Long(desc='token 过期时间, 单位毫秒')
 
 class AuthCaptchaRsp():
     '''验证码返回参数'''
-    captchaKey = required.String(desc='验证码key')
+    captchaKey    = required.String(desc='验证码key')
     captchaBase64 = required.String(desc='验证码, base64字符串。[data:image/png;base64,] 开头')
-    width = required.Integer(desc='图片宽度')
-    height = required.Integer(desc='图片高度')
+    width         = required.Integer(desc='图片宽度')
+    height        = required.Integer(desc='图片高度')
 
 with services():
     POST('登录', '/v1/auth/login', AuthLoginReq, AauthLoginRsp)

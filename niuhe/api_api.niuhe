@@ -2,47 +2,47 @@ include('comm.niuhe')
 include('api_menus.niuhe')
 
 class V1ApiItem():
-    id = optional.Long(desc="主键")
-    method = required.String(desc="请求方法")
-    name = required.String(desc="API名称")
-    path = required.String(desc="API路径")
-    menus = repeated.String(desc="API 菜单列表")
-    remark = optional.String(desc="备注")
+    id         = optional.Long(desc="主键")
+    method     = required.String(desc="请求方法")
+    name       = required.String(desc="API名称")
+    path       = required.String(desc="API路径")
+    menus      = repeated.String(desc="API 菜单列表")
+    remark     = optional.String(desc="备注")
     updateTime = optional.String(desc='更新时间')
 
 
 
 class V1ApiPageReq():
-    keyword = optional.String(desc="路径名称搜索")
-    pageNum = optional.Integer(desc="页码")
+    keyword  = optional.String(desc="路径名称搜索")
+    pageNum  = optional.Integer(desc="页码")
     pageSize = optional.Integer(desc="每页记录数")
 
 
 
 class V1ApiPageRsp():
     '''分页获取API列表'''
-    items = repeated.Message(cls=V1ApiItem, desc="列表")
+    items  = repeated.Message(cls=V1ApiItem, desc="列表")
     button = required.Integer(desc="按钮类型")
-    total = required.Long(desc="总记录数")
+    total  = required.Long(desc="总记录数")
 
 class V1ApiFormReq():
     id = required.Long(desc="配置 id")
 
 class V1ApiFormRsp():
-    id = required.Long(desc="主键")
-    method = required.String(desc="请求方法")
-    name = required.String(desc="API名称")
-    path = required.String(desc="API路径")
-    menus = repeated.Message(desc="API 菜单列表", cls=comm.V1MenuTiny)
-    remark = required.String(desc="备注")
+    id      = required.Long(desc="主键")
+    method  = required.String(desc="请求方法")
+    name    = required.String(desc="API名称")
+    path    = required.String(desc="API路径")
+    menus   = repeated.Message(desc="API 菜单列表", cls=comm.V1MenuTiny)
+    remark  = required.String(desc="备注")
     methods = repeated.String(desc='方法列表')
 
 class V1ApiUpdateReq():
-    id = required.Long(desc="主键")
+    id     = required.Long(desc="主键")
     method = required.String(desc="方法名")
-    name = required.String(desc="API名称")
-    path = required.String(desc="API路径")
-    menus = repeated.Long(desc="权限菜单按钮ID列表")
+    name   = required.String(desc="API名称")
+    path   = required.String(desc="API路径")
+    menus  = repeated.Long(desc="权限菜单按钮ID列表")
     remark = optional.String(desc="备注")
 
 

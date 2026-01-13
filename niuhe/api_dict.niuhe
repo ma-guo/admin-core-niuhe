@@ -4,18 +4,18 @@ include('comm.niuhe')
 class V1DictPageReq():
     keywords = optional.String(desc="关键字(类型名称/类型编码)")
     typeCode = optional.String(desc="字典类型编码")
-    pageNum = optional.Integer(desc="页码")
+    pageNum  = optional.Integer(desc="页码")
     pageSize = optional.Integer(desc="每页记录数")
 
 class V1DictItem():
-    id = optional.Long(desc="主键")
-    name = optional.String(desc="字典名称")
-    value = optional.String(desc="字典值")
+    id     = optional.Long(desc="主键")
+    name   = optional.String(desc="字典名称")
+    value  = optional.String(desc="字典值")
     remark = optional.String(desc="备注")
     status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
 
 class V1DictPageRsp():
-    list = repeated.Message(cls=V1DictItem, desc="列表")
+    list  = repeated.Message(cls=V1DictItem, desc="列表")
     total = required.Long(desc="总记录数")
 
 class V1DictOptionsReq():
@@ -28,31 +28,31 @@ class V1DictFormReq():
     id = required.Long(desc="字典ID")
 
 class V1DictFormRsp():
-    id = optional.Long(desc="主键")
+    id       = optional.Long(desc="主键")
     typeCode = required.String(desc="类型编码")
-    name = optional.String(desc="字典名称")
-    value= optional.String(desc="字典值")
-    status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
-    sort = optional.Integer(desc="排序")
-    remark = optional.String(desc="备注")
+    name     = optional.String(desc="字典名称")
+    value    = optional.String(desc="字典值")
+    status   = optional.Enum(desc="状态", group=comm.CommStatusEnum)
+    sort     = optional.Integer(desc="排序")
+    remark   = optional.String(desc="备注")
 
 class V1DictAddReq():
-    id = optional.Long(desc="主键")
+    id       = optional.Long(desc="主键")
     typeCode = required.String(desc="类型编码")
-    name = optional.String(desc="字典名称")
-    value= optional.String(desc="字典值")
-    status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
-    sort = optional.Integer(desc="排序")
-    remark = optional.String(desc="备注")
+    name     = optional.String(desc="字典名称")
+    value    = optional.String(desc="字典值")
+    status   = optional.Enum(desc="状态", group=comm.CommStatusEnum)
+    sort     = optional.Integer(desc="排序")
+    remark   = optional.String(desc="备注")
 
 class V1DictUpdateReq():
-    id = required.Long(desc="主键")
+    id       = required.Long(desc="主键")
     typeCode = optional.String(desc="类型编码")
-    name = optional.String(desc="字典名称")
-    value= optional.String(desc="字典值")
-    status = optional.Enum(desc="状态", group=comm.CommStatusEnum)
-    sort = optional.Integer(desc="排序")
-    remark = optional.String(desc="备注")
+    name     = optional.String(desc="字典名称")
+    value    = optional.String(desc="字典值")
+    status   = optional.Enum(desc="状态", group=comm.CommStatusEnum)
+    sort     = optional.Integer(desc="排序")
+    remark   = optional.String(desc="备注")
 
 class V1DictDeleteReq():
     ids = required.String(desc="字典ID，多个以英文逗号(,)拼接")

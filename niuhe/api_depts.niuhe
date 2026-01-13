@@ -3,19 +3,19 @@ include('comm.niuhe')
 
 class V1DeptItem():
     '''部门信息'''
-    id = required.Long(desc='部门id')
-    parentId = optional.Long(desc='父部门id')
-    name = required.String(desc='部门名称')
-    sort = optional.Integer(desc='排序')
-    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    id         = required.Long(desc='部门id')
+    parentId   = optional.Long(desc='父部门id')
+    name       = required.String(desc='部门名称')
+    sort       = optional.Integer(desc='排序')
+    status     = optional.Enum(desc='状态', group=comm.CommStatusEnum)
     createTime = optional.String(desc='创建时间')
     updateTime = optional.String(desc='修改时间')
-    children = repeated.Message(cls=V1DeptItem, desc='子部门')
+    children   = repeated.Message(cls=V1DeptItem, desc='子部门')
 
 class V1DeptListReq():
     '''部门列表请求'''
     keyword = optional.String(desc='搜索关键词')
-    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    status  = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
 class V1DeptListRsp():
     '''部门列表响应'''
@@ -23,11 +23,11 @@ class V1DeptListRsp():
 
 class V1DeptAddReq():
     '''部门添加请求参数'''
-    id = optional.Long(desc='部门id, 前端使用')
+    id       = optional.Long(desc='部门id, 前端使用')
     parentId = required.Long(desc='父部门id')
-    name = required.String(desc='部门名称')
-    sort = optional.Integer(desc='排序')
-    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    name     = required.String(desc='部门名称')
+    sort     = optional.Integer(desc='排序')
+    status   = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
 class V1DeptOptionsRsp():
     '''部门下拉列表响应'''
@@ -35,11 +35,11 @@ class V1DeptOptionsRsp():
 
 class V1DeptUpdateReq():
     '''修改部门请求参数'''
-    id = required.Long(desc='部门id')
+    id       = required.Long(desc='部门id')
     parentId = required.Long(desc='父部门id')
-    name = required.String(desc='部门名称')
-    sort = optional.Integer(desc='排序')
-    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    name     = required.String(desc='部门名称')
+    sort     = optional.Integer(desc='排序')
+    status   = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
 class V1DeptFormReq():
     '''获取部门表单数据请求参数'''
@@ -47,11 +47,11 @@ class V1DeptFormReq():
 
 class V1DeptFormRsp():
     '''获取部门表单数据返回参数'''
-    id = required.Long(desc='部门id')
+    id       = required.Long(desc='部门id')
     parentId = required.Long(desc='父部门id')
-    name = required.String(desc='部门名称')
-    sort = optional.Integer(desc='排序')
-    status = optional.Enum(desc='状态', group=comm.CommStatusEnum)
+    name     = required.String(desc='部门名称')
+    sort     = optional.Integer(desc='排序')
+    status   = optional.Enum(desc='状态', group=comm.CommStatusEnum)
 
 class V1DeptDeleteReq():
     '''删除部门请求参数'''

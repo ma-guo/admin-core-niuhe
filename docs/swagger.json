@@ -460,6 +460,23 @@
                             0,
                             1,
                             2
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Unknow",
+                                "value": 0,
+                                "description": "未知"
+                            },
+                            {
+                                "name": "Man",
+                                "value": 1,
+                                "description": "男"
+                            },
+                            {
+                                "name": "Woman",
+                                "value": 2,
+                                "description": "女"
+                            }
                         ]
                     },
                     {
@@ -485,6 +502,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -667,6 +696,23 @@
                             0,
                             1,
                             2
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Unknow",
+                                "value": 0,
+                                "description": "未知"
+                            },
+                            {
+                                "name": "Man",
+                                "value": 1,
+                                "description": "男"
+                            },
+                            {
+                                "name": "Woman",
+                                "value": 2,
+                                "description": "女"
+                            }
                         ]
                     },
                     {
@@ -692,6 +738,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -1101,6 +1159,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     }
                 ],
@@ -1335,6 +1405,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -1355,6 +1437,28 @@
                             1,
                             2,
                             3
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "All",
+                                "value": 0,
+                                "description": "所有数据"
+                            },
+                            {
+                                "name": "DeptSub",
+                                "value": 1,
+                                "description": "部门及子部门数据"
+                            },
+                            {
+                                "name": "Dept",
+                                "value": 2,
+                                "description": "本部门数据"
+                            },
+                            {
+                                "name": "Self",
+                                "value": 3,
+                                "description": "本人数据"
+                            }
                         ]
                     }
                 ],
@@ -1509,6 +1613,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -1529,6 +1645,28 @@
                             1,
                             2,
                             3
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "All",
+                                "value": 0,
+                                "description": "所有数据"
+                            },
+                            {
+                                "name": "DeptSub",
+                                "value": 1,
+                                "description": "部门及子部门数据"
+                            },
+                            {
+                                "name": "Dept",
+                                "value": 2,
+                                "description": "本部门数据"
+                            },
+                            {
+                                "name": "Self",
+                                "value": 3,
+                                "description": "本人数据"
+                            }
                         ]
                     }
                 ],
@@ -1795,6 +1933,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     }
                 ],
@@ -1867,6 +2017,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Visible",
+                                "value": 1,
+                                "description": "显示"
+                            },
+                            {
+                                "name": "InVisible",
+                                "value": 0,
+                                "description": "隐藏"
+                            }
                         ]
                     },
                     {
@@ -1880,6 +2042,28 @@
                             2,
                             3,
                             4
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "MENU",
+                                "value": 1,
+                                "description": "MENU"
+                            },
+                            {
+                                "name": "CATALOG",
+                                "value": 2,
+                                "description": "CATALOG"
+                            },
+                            {
+                                "name": "EXTLINK",
+                                "value": 3,
+                                "description": "EXTLINK"
+                            },
+                            {
+                                "name": "BUTTON",
+                                "value": 4,
+                                "description": "BUTTON"
+                            }
                         ]
                     }
                 ],
@@ -2050,6 +2234,33 @@
                             "MENU",
                             "BUTTON",
                             "EXTLINK"
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "NULL",
+                                "value": "NULL",
+                                "description": "无类型"
+                            },
+                            {
+                                "name": "CATALOG",
+                                "value": "CATALOG",
+                                "description": "目录"
+                            },
+                            {
+                                "name": "MENU",
+                                "value": "MENU",
+                                "description": "菜单"
+                            },
+                            {
+                                "name": "BUTTON",
+                                "value": "BUTTON",
+                                "description": "按钮"
+                            },
+                            {
+                                "name": "EXTLINK",
+                                "value": "EXTLINK",
+                                "description": "外链"
+                            }
                         ]
                     },
                     {
@@ -2082,6 +2293,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Visible",
+                                "value": 1,
+                                "description": "显示"
+                            },
+                            {
+                                "name": "InVisible",
+                                "value": 0,
+                                "description": "隐藏"
+                            }
                         ]
                     },
                     {
@@ -2418,6 +2641,33 @@
                             "MENU",
                             "BUTTON",
                             "EXTLINK"
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "NULL",
+                                "value": "NULL",
+                                "description": "无类型"
+                            },
+                            {
+                                "name": "CATALOG",
+                                "value": "CATALOG",
+                                "description": "目录"
+                            },
+                            {
+                                "name": "MENU",
+                                "value": "MENU",
+                                "description": "菜单"
+                            },
+                            {
+                                "name": "BUTTON",
+                                "value": "BUTTON",
+                                "description": "按钮"
+                            },
+                            {
+                                "name": "EXTLINK",
+                                "value": "EXTLINK",
+                                "description": "外链"
+                            }
                         ]
                     },
                     {
@@ -2450,6 +2700,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Visible",
+                                "value": 1,
+                                "description": "显示"
+                            },
+                            {
+                                "name": "InVisible",
+                                "value": 0,
+                                "description": "隐藏"
+                            }
                         ]
                     },
                     {
@@ -2557,6 +2819,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Visible",
+                                "value": 1,
+                                "description": "显示"
+                            },
+                            {
+                                "name": "InVisible",
+                                "value": 0,
+                                "description": "隐藏"
+                            }
                         ]
                     }
                 ],
@@ -2631,6 +2905,28 @@
                             2,
                             3,
                             4
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "MENU",
+                                "value": 1,
+                                "description": "MENU"
+                            },
+                            {
+                                "name": "CATALOG",
+                                "value": 2,
+                                "description": "CATALOG"
+                            },
+                            {
+                                "name": "EXTLINK",
+                                "value": 3,
+                                "description": "EXTLINK"
+                            },
+                            {
+                                "name": "BUTTON",
+                                "value": 4,
+                                "description": "BUTTON"
+                            }
                         ]
                     },
                     {
@@ -2726,6 +3022,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     }
                 ],
@@ -2834,6 +3142,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     }
                 ],
@@ -2990,6 +3310,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     }
                 ],
@@ -3444,6 +3776,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -3551,6 +3895,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -3865,6 +4221,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -3958,6 +4326,18 @@
                         "enum": [
                             1,
                             0
+                        ],
+                        "x-apifox-enum": [
+                            {
+                                "name": "Enable",
+                                "value": 1,
+                                "description": "启用"
+                            },
+                            {
+                                "name": "Disable",
+                                "value": 0,
+                                "description": "停用"
+                            }
                         ]
                     },
                     {
@@ -4110,7 +4490,8 @@
                                 "result": 0,
                                 "data": {
                                     "name": "",
-                                    "url": ""
+                                    "url": "",
+                                    "signed_url": ""
                                 }
                             }
                         }
@@ -7716,6 +8097,10 @@
                 "url": {
                     "type": "string",
                     "description": "文件URL"
+                },
+                "signed_url": {
+                    "type": "string",
+                    "description": "签名后的URL"
                 }
             },
             "required": []
